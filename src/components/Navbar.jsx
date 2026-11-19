@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useScroll } from 'framer-motion';
-import { Menu, X, Bot, ChevronRight } from 'lucide-react';
+import { Menu, X, ChevronRight } from 'lucide-react';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -68,16 +68,12 @@ export default function Navbar() {
             whileTap={{ scale: 0.96 }}
             className="flex items-center gap-2.5 group"
           >
-            <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-zinc-900 border border-zinc-800 transition-all duration-300 group-hover:border-zinc-500 shadow-lg group-hover:shadow-[0_0_15px_rgba(255,255,255,0.1)]">
-              <Bot className="h-5 w-5 text-zinc-200 group-hover:text-white transition-colors" />
-            </div>
-            <div className="flex flex-col text-left">
-              <span className="text-base font-bold tracking-tight text-white group-hover:text-zinc-200 transition-colors">
-                Rendra<span className="text-zinc-400">.dev</span>
-              </span>
-              <span className="text-[10px] font-mono text-zinc-400 tracking-wider uppercase">
-                Software & AI
-              </span>
+            <div className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950 transition-all duration-300 group-hover:border-zinc-500 shadow-lg group-hover:shadow-[0_0_15px_rgba(255,255,255,0.1)]">
+              <img
+                src="/images/r-logo-v2.svg"
+                alt="Logo Rendra"
+                className="h-full w-full object-cover"
+              />
             </div>
           </motion.a>
 
