@@ -5,21 +5,23 @@ import {
   Server, Repeat, ShieldCheck, Database, Box, Terminal,
   Bot, Sparkles, Cpu, Wand2, MessageSquare, BookOpen, 
   HardDrive, Boxes, Radio, Scan, Wifi, Power, Share2,
-  GitBranch, Laptop, Layout, Send, Table
+  GitBranch, Laptop, Layout, Send, Table, Coffee, Hash,
+  Search, Braces, CodeXml, Route, BrainCircuit, Gauge,
+  DatabaseZap, Binary, CircuitBoard, X
 } from 'lucide-react';
 import GlowingParticlesSectionBg from './GlowingParticlesSectionBg';
 
 export default function SkillsMarquee({ data }) {
-  const [activeTab, setActiveTab] = useState('all');
+  const [activeSkill, setActiveSkill] = useState(null);
 
   const marqueeItemsRow1 = [
     { name: "LivePerson AI", tag: "AI Studio", icon: Bot },
     { name: "React.js", tag: "Frontend", icon: Atom },
     { name: "Google Gemini", tag: "GenAI", icon: Sparkles },
-    { name: "OpenAI GPT-4", tag: "LLM", icon: Cpu },
+    { name: "OpenAI GPT", tag: "LLM", icon: Cpu },
     { name: "Node.js", tag: "Backend", icon: Server },
     { name: "Tailwind CSS", tag: "Styling", icon: Palette },
-    { name: "Laravel 13", tag: "PHP", icon: ShieldCheck },
+    { name: "PHP & Laravel", tag: "Backend", icon: ShieldCheck },
     { name: "ESP32 IoT", tag: "Microcontroller", icon: Radio },
     { name: "RFID RC522", tag: "Hardware", icon: Scan },
     { name: "TypeScript", tag: "Type-Safe", icon: FileCode }
@@ -28,36 +30,84 @@ export default function SkillsMarquee({ data }) {
   const marqueeItemsRow2 = [
     { name: "Prompt Engineering", tag: "Advanced", icon: Wand2 },
     { name: "Next.js", tag: "Full-Stack", icon: Globe },
-    { name: "REST API", tag: "Integration", icon: Repeat },
+    { name: "REST API Integration", tag: "Backend", icon: Repeat },
     { name: "MySQL", tag: "Relational DB", icon: Database },
     { name: "MongoDB", tag: "NoSQL", icon: Box },
     { name: "LM Studio", tag: "Local LLM", icon: HardDrive },
-    { name: "Inertia.js", tag: "Monolith Bridge", icon: Zap },
+    { name: "Vite & Inertia.js", tag: "Web Tools", icon: Zap },
     { name: "Git & GitHub", tag: "Version Control", icon: GitBranch },
     { name: "Figma", tag: "UI/UX", icon: Layout },
     { name: "Postman", tag: "API Testing", icon: Send }
   ];
 
-  const categories = [
-    { id: 'all', label: 'All Technologies' },
-    { id: 'ai', label: 'AI & LLM' },
-    { id: 'frontend', label: 'Frontend' },
-    { id: 'backend', label: 'Backend' },
-    { id: 'iot', label: 'IoT & Hardware' },
-    { id: 'tools', label: 'Tools' }
+  const skillIcons = {
+    Atom, Palette, Code, FileCode, Globe, Layers, Zap,
+    Server, Repeat, ShieldCheck, Database, Box, Terminal,
+    Bot, Sparkles, Cpu, Wand2, MessageSquare, BookOpen,
+    HardDrive, Boxes, Radio, Scan, Wifi, Power, Share2,
+    GitBranch, Laptop, Layout, Send, Table, Coffee, Hash,
+    Search, Braces, CodeXml, Route, BrainCircuit, Gauge,
+    DatabaseZap, Binary, CircuitBoard
+  };
+
+  const brandIcons = {
+    'React.js': 'react',
+    'TypeScript': 'typescript',
+    'Next.js': 'nextdotjs',
+    'JavaScript (ES6+)': 'javascript',
+    'HTML5 & CSS3': 'html5',
+    'Tailwind CSS': 'tailwindcss',
+    'Vite & Inertia.js': 'vite',
+    'Node.js': 'nodedotjs',
+    'PHP & Laravel': 'laravel',
+    'PHP': 'php',
+    'Java': 'openjdk',
+    'C#': 'dotnet',
+    'MySQL': 'mysql',
+    'MongoDB': 'mongodb',
+    'Python': 'python',
+    'Git & GitHub': 'github',
+    'VS Code & VSCodium': 'vscode',
+    'Figma': 'figma',
+    'Postman': 'postman',
+    'OpenAI GPT': 'openai',
+    'Google Gemini': 'googlegemini',
+    'ESP32': 'espressif',
+    'Arduino': 'arduino',
+    'Arduino IDE': 'arduino',
+    'NVIDIA NIM': 'nvidia',
+    'Docker': 'docker'
+  };
+
+  const BrandIcon = ({ name, fallback: Fallback, className = 'h-4 w-4' }) => {
+    const slug = brandIcons[name];
+    if (!slug) return <Fallback className={className} />;
+    return (
+      <img
+        src={`https://cdn.simpleicons.org/${slug}`}
+        alt=""
+        className={`${className} object-contain`}
+        loading="lazy"
+      />
+    );
+  };
+
+  const skillCategories = [
+    ...data.technicalSkills.ai.map((skill) => ({ ...skill, category: 'AI & LLM' })),
+    ...data.technicalSkills.frontend.map((skill) => ({ ...skill, category: 'Frontend' })),
+    ...data.technicalSkills.backend.map((skill) => ({ ...skill, category: 'Backend' })),
+    ...data.technicalSkills.iot.map((skill) => ({ ...skill, category: 'IoT & Hardware' })),
+    ...data.technicalSkills.tools.map((skill) => ({ ...skill, category: 'Tools' }))
   ];
 
-  const getFilteredSkills = () => {
-    if (activeTab === 'all') {
-      return [
-        ...data.technicalSkills.ai.map(s => ({ ...s, cat: 'AI & LLM' })),
-        ...data.technicalSkills.frontend.map(s => ({ ...s, cat: 'Frontend' })),
-        ...data.technicalSkills.backend.map(s => ({ ...s, cat: 'Backend' })),
-        ...data.technicalSkills.iot.map(s => ({ ...s, cat: 'IoT & Hardware' })),
-        ...data.technicalSkills.tools.map(s => ({ ...s, cat: 'Tools' }))
-      ];
-    }
-    return data.technicalSkills[activeTab] || [];
+  const openSkill = (item) => {
+    const match = skillCategories.find((skill) => skill.name === item.name);
+    setActiveSkill(match || {
+      name: item.name,
+      level: item.tag,
+      category: item.tag,
+      icon: item.icon?.displayName || 'Terminal'
+    });
   };
 
   return (
@@ -75,13 +125,13 @@ export default function SkillsMarquee({ data }) {
         >
           <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-xs font-mono text-zinc-300">
             <Zap className="h-3.5 w-3.5 text-zinc-400" />
-            <span>CORE COMPETENCIES & STACK</span>
+            <span>TECHNICAL SKILLS & TECHNOLOGIES</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
             Tech Stack & <span className="text-gradient-mono">Kemampuan Teknis</span>
           </h2>
           <p className="text-sm text-zinc-400 max-w-2xl mx-auto">
-            Kombinasi teknologi yang digunakan dalam proyek nyata mulai dari integrasi Generative AI, sistem web full-stack, hingga arsitektur IoT dan mikrokontroler.
+            Teknologi dan kemampuan teknis yang saya gunakan dalam pengembangan aplikasi web, integrasi Generative AI, serta sistem IoT dan mikrokontroler.
           </p>
         </motion.div>
       </div>
@@ -95,19 +145,21 @@ export default function SkillsMarquee({ data }) {
           {[...marqueeItemsRow1, ...marqueeItemsRow1].map((item, idx) => {
             const Icon = item.icon;
             return (
-              <motion.div
+              <motion.button
                 key={idx}
+                type="button"
+                onClick={() => openSkill(item)}
                 whileHover={{ scale: 1.05, y: -2 }}
-                className="flex items-center gap-3 px-5 py-2.5 rounded-2xl bg-zinc-900/90 border border-zinc-800 hover:border-zinc-500 hover:bg-zinc-850 transition-colors cursor-default shrink-0 shadow-sm"
+                className="flex items-center gap-3 px-5 py-2.5 rounded-2xl bg-zinc-900/90 border border-zinc-800 hover:border-zinc-500 hover:bg-zinc-850 transition-colors cursor-pointer shrink-0 shadow-sm"
               >
                 <div className="p-1.5 rounded-xl bg-zinc-950 border border-zinc-800">
-                  <Icon className="h-4 w-4 text-zinc-200" />
+                  <BrandIcon name={item.name} fallback={Icon} className="h-4 w-4" />
                 </div>
                 <div>
                   <div className="text-xs font-bold text-zinc-200">{item.name}</div>
                   <div className="text-[10px] font-mono text-zinc-400">{item.tag}</div>
                 </div>
-              </motion.div>
+              </motion.button>
             );
           })}
         </div>
@@ -122,86 +174,76 @@ export default function SkillsMarquee({ data }) {
           {[...marqueeItemsRow2, ...marqueeItemsRow2].map((item, idx) => {
             const Icon = item.icon;
             return (
-              <motion.div
+              <motion.button
                 key={idx}
+                type="button"
+                onClick={() => openSkill(item)}
                 whileHover={{ scale: 1.05, y: -2 }}
-                className="flex items-center gap-3 px-5 py-2.5 rounded-2xl bg-zinc-900/90 border border-zinc-800 hover:border-zinc-500 hover:bg-zinc-850 transition-colors cursor-default shrink-0 shadow-sm"
+                className="flex items-center gap-3 px-5 py-2.5 rounded-2xl bg-zinc-900/90 border border-zinc-800 hover:border-zinc-500 hover:bg-zinc-850 transition-colors cursor-pointer shrink-0 shadow-sm"
               >
                 <div className="p-1.5 rounded-xl bg-zinc-950 border border-zinc-800">
-                  <Icon className="h-4 w-4 text-zinc-200" />
+                  <BrandIcon name={item.name} fallback={Icon} className="h-4 w-4" />
                 </div>
                 <div>
                   <div className="text-xs font-bold text-zinc-200">{item.name}</div>
                   <div className="text-[10px] font-mono text-zinc-400">{item.tag}</div>
                 </div>
-              </motion.div>
+              </motion.button>
             );
           })}
         </div>
       </div>
 
-      {/* Detailed Technical Skills Interactive Grid */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Category Tabs: Rounded Minimalist Pills with Click Animation */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-8">
-          {categories.map((cat) => (
-            <motion.button
-              key={cat.id}
-              whileHover={{ scale: 1.04, y: -1 }}
-              whileTap={{ scale: 0.94 }}
-              onClick={() => setActiveTab(cat.id)}
-              className={`px-4 py-2 rounded-full text-xs font-mono transition-all ${
-                activeTab === cat.id
-                  ? 'bg-white text-zinc-950 font-bold shadow-lg shadow-white/10'
-                  : 'bg-zinc-900/80 border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-700'
-              }`}
+      <AnimatePresence>
+        {activeSkill && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[70] flex items-center justify-center p-4 bg-black/85 backdrop-blur-xl"
+            onClick={() => setActiveSkill(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.94, y: 18, opacity: 0 }}
+              animate={{ scale: 1, y: 0, opacity: 1 }}
+              exit={{ scale: 0.94, y: 18, opacity: 0 }}
+              onClick={(event) => event.stopPropagation()}
+              className="relative w-full max-w-md rounded-3xl border border-zinc-800 bg-zinc-950 p-6 shadow-2xl"
             >
-              {cat.label}
-            </motion.button>
-          ))}
-        </div>
-
-        {/* Skills Cards Grid with Staggered Scroll Animation */}
-        <motion.div 
-          layout
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3.5"
-        >
-          <AnimatePresence>
-            {getFilteredSkills().map((skill, index) => (
-              <motion.div
-                key={skill.name}
-                layout
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.25, delay: index * 0.02 }}
-                whileHover={{ y: -6, scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                className="group p-4 rounded-2xl bg-zinc-900/50 border border-zinc-800/80 hover:border-zinc-500 hover:bg-zinc-900 transition-all duration-300 flex flex-col justify-between cursor-pointer shadow-md hover:shadow-[0_0_20px_rgba(255,255,255,0.08)]"
+              <button
+                type="button"
+                onClick={() => setActiveSkill(null)}
+                className="absolute right-4 top-4 rounded-xl border border-zinc-700 bg-zinc-900 p-2 text-zinc-400 hover:text-white"
+                aria-label="Tutup"
               >
-                <div className="flex items-center justify-between mb-3">
-                  <span className="p-2 rounded-xl bg-zinc-950 border border-zinc-800 text-zinc-300 group-hover:scale-110 group-hover:text-white group-hover:border-zinc-700 transition-all">
-                    <Bot className="h-4 w-4" />
-                  </span>
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-zinc-950 text-zinc-400 border border-zinc-800">
-                    {skill.level}
-                  </span>
-                </div>
-                <div>
-                  <h4 className="text-sm font-bold text-white group-hover:text-zinc-200 transition-colors">
-                    {skill.name}
-                  </h4>
-                  {skill.cat && (
-                    <p className="text-[10px] font-mono text-zinc-400 mt-0.5">
-                      {skill.cat}
-                    </p>
-                  )}
-                </div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </motion.div>
-      </div>
+                <X className="h-4 w-4" />
+              </button>
+
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-zinc-700 bg-zinc-900 text-zinc-200">
+                <BrandIcon
+                  name={activeSkill.name}
+                  fallback={skillIcons[activeSkill.icon] || Bot}
+                  className="h-5 w-5"
+                />
+              </div>
+              <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.18em] text-zinc-500">
+                {activeSkill.category}
+              </p>
+              <h3 className="mt-2 pr-10 text-xl font-bold text-white">{activeSkill.name}</h3>
+              <p className="mt-3 text-sm text-zinc-400">
+                Level penggunaan: <span className="font-semibold text-zinc-200">{activeSkill.level}</span>
+              </p>
+              <button
+                type="button"
+                onClick={() => setActiveSkill(null)}
+                className="mt-6 rounded-xl border border-zinc-700 bg-zinc-900 px-4 py-2 text-xs font-semibold text-zinc-200 hover:bg-zinc-800"
+              >
+                Tutup
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

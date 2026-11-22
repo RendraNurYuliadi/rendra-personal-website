@@ -1,128 +1,85 @@
-import React, { useState, useEffect } from 'react';
-import { Terminal, Bot, CheckCircle2 } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import rLogo from '../assets/r_logo_v2.jpg';
 
 export default function SplashScreen({ onComplete }) {
-  const [progress, setProgress] = useState(0);
-  const [currentStep, setCurrentStep] = useState(0);
   const [isFading, setIsFading] = useState(false);
 
-  const steps = [
-    "INITIALIZING CORE SYSTEM...",
-    "LOADING NEURAL MODULES & LLM PROMPTS...",
-    "CONNECTING TO LIVEPERSON & IOT MESH...",
-    "RENDRA NUR YULIADI PORTFOLIO READY"
-  ];
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setProgress((prev) => {
-        if (prev >= 100) {
-          clearInterval(timer);
-          setTimeout(() => {
-            setIsFading(true);
-            setTimeout(() => {
-              onComplete();
-            }, 500);
-          }, 250);
-          return 100;
-        }
-        const next = prev + Math.floor(Math.random() * 9) + 5;
-        return next > 100 ? 100 : next;
-      });
-    }, 70);
-
-    return () => clearInterval(timer);
-  }, [onComplete]);
-
-  useEffect(() => {
-    if (progress < 30) setCurrentStep(0);
-    else if (progress < 60) setCurrentStep(1);
-    else if (progress < 90) setCurrentStep(2);
-    else setCurrentStep(3);
-  }, [progress]);
-
-  const handleSkip = () => {
+  const finishSplash = () => {
+    if (isFading) return;
     setIsFading(true);
-    setTimeout(() => {
-      onComplete();
-    }, 200);
+    setTimeout(onComplete, 500);
   };
+
+  useEffect(() => {
+    const timer = setTimeout(finishSplash, 3500);
+    return () => clearTimeout(timer);
+  }, [onComplete]);
 
   return (
     <div
-      className={`fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#09090b] text-zinc-100 transition-opacity duration-500 ${
+      className={`fixed inset-0 z-50 flex items-center justify-center overflow-hidden text-white transition-opacity duration-500 ${
         isFading ? 'opacity-0 pointer-events-none' : 'opacity-100'
       }`}
     >
-      {/* Background Minimalist Grid */}
-      <div className="absolute inset-0 bg-minimal-grid opacity-20 pointer-events-none" />
+      <div className="splash-gradient absolute inset-0" />
+      <div className="absolute inset-0 bg-minimal-grid opacity-[0.12]" />
+      <div className="splash-particles absolute inset-0" aria-hidden="true">
+        {Array.from({ length: 18 }).map((_, index) => (
+          <span
+            key={index}
+            className="splash-particle"
+            style={{
+              '--particle-x': `${8 + ((index * 29) % 88)}%`,
+              '--particle-y': `${8 + ((index * 47) % 84)}%`,
+              '--particle-delay': `${(index % 6) * 0.32}s`,
+              '--particle-size': `${2 + (index % 3)}px`,
+            }}
+          />
+        ))}
+      </div>
+      <div className="splash-aurora absolute h-[520px] w-[520px] rounded-full" />
+      <div className="splash-ring splash-ring-one absolute" />
+      <div className="splash-ring splash-ring-two absolute" />
 
-      {/* Main Content Box */}
-      <div className="relative z-10 w-full max-w-md px-6 text-center">
-        {/* Minimalist Icon Logo */}
-        <div className="relative mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-3xl border border-zinc-700 bg-zinc-900 shadow-2xl">
-          <Bot className="h-9 w-9 text-white animate-pulse" />
+      <div className="relative z-10 flex w-full max-w-xl flex-col items-center px-6 text-center">
+        <div className="splash-logo-wrap relative mb-8">
+          <img
+            src={rLogo}
+            alt="Rendra Nur Yuliadi"
+            className="splash-logo relative h-28 w-28 rounded-[28px] object-cover shadow-2xl sm:h-32 sm:w-32"
+          />
         </div>
 
-        {/* Title */}
-        <h1 className="text-2xl font-extrabold tracking-tight text-white mb-1">
-          RENDRA NUR YULIADI
-        </h1>
-        <p className="text-xs font-mono tracking-widest text-zinc-400 mb-6 uppercase">
-          AI &amp; Full-Stack Developer
+        <div className="overflow-hidden">
+          <p className="splash-label mb-3 text-[11px] font-medium uppercase tracking-[0.42em] text-zinc-400">
+            Personal Portfolio
+          </p>
+        </div>
+
+        <div className="overflow-hidden">
+          <h1 className="splash-title text-3xl font-extrabold tracking-tight text-white sm:text-5xl">
+            Rendra Nur Yuliadi
+          </h1>
+        </div>
+
+        <p className="splash-subtitle mt-4 text-sm text-zinc-400 sm:text-base">
+          Software &amp; AI Developer
         </p>
 
-        {/* Console / Status Box */}
-        <div className="rounded-2xl border border-zinc-800 bg-zinc-950 p-4 font-mono text-left text-xs shadow-inner backdrop-blur mb-6">
-          <div className="flex items-center justify-between pb-2 mb-2 border-b border-zinc-800 text-zinc-400">
-            <span className="flex items-center gap-1.5 text-[11px] text-zinc-300">
-              <Terminal className="h-3.5 w-3.5" /> BOOT_SEQUENCE.sh
-            </span>
-            <span className="text-[10px] text-zinc-600">v2.5.0</span>
-          </div>
-          <div className="space-y-1.5">
-            {steps.slice(0, currentStep + 1).map((step, idx) => (
-              <div
-                key={idx}
-                className={`flex items-center gap-2 ${
-                  idx === currentStep ? 'text-white font-medium' : 'text-zinc-500'
-                }`}
-              >
-                <span className="text-zinc-600">&gt;</span>
-                <span>{step}</span>
-                {idx === currentStep && progress < 100 && (
-                  <span className="inline-block h-3 w-1.5 bg-white ml-1 animate-pulse" />
-                )}
-                {idx < currentStep && (
-                  <CheckCircle2 className="h-3.5 w-3.5 text-zinc-300 ml-auto shrink-0" />
-                )}
-              </div>
-            ))}
-          </div>
+        <div className="mt-9 h-px w-64 overflow-hidden bg-zinc-800">
+          <div className="splash-progress h-full bg-white" />
         </div>
-
-        {/* Progress Bar */}
-        <div className="space-y-2">
-          <div className="flex justify-between text-xs font-mono text-zinc-400">
-            <span>LOADING ASSETS</span>
-            <span className="text-white font-bold">{progress}%</span>
-          </div>
-          <div className="h-1.5 w-full overflow-hidden rounded-full bg-zinc-800">
-            <div
-              className="h-full bg-white transition-all duration-150 ease-out"
-              style={{ width: `${progress}%` }}
-            />
-          </div>
-        </div>
-
-        {/* Skip Button */}
-        <button
-          onClick={handleSkip}
-          className="mt-6 text-xs text-zinc-500 hover:text-white transition-colors tracking-wide underline underline-offset-4"
-        >
-          Lewati Intro (Skip) &rarr;
-        </button>
+        <p className="mt-4 text-xs text-zinc-500">
+          Jika musik tidak otomatis diputar, klik layar untuk memulai.
+        </p>
       </div>
+
+      <button
+        onClick={finishSplash}
+        className="absolute bottom-6 right-6 rounded-full border border-zinc-800 bg-zinc-950/70 px-4 py-2 text-xs text-zinc-500 backdrop-blur-md transition-colors hover:text-white"
+      >
+        Lewati
+      </button>
     </div>
   );
 }

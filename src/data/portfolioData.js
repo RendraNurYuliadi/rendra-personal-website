@@ -2,46 +2,45 @@ export const portfolioData = {
   personal: {
     name: "Rendra Nur Yuliadi",
     shortName: "Rendra",
-    title: "Software Developer | AI & GenAI Specialist",
-    tagline: "Building Intelligent Solutions Through Code, AI, and Innovation.",
-    brandStatement: "Turning Ideas Into Functional Digital Solutions.",
+    title: "Software Developer | Conversational AI",
+    tagline: "Membangun aplikasi web dan chatbot AI.",
+    brandStatement: "Memahami masalah, menentukan solusi, lalu membangunnya menjadi sesuatu yang berfungsi.",
     location: "Sumedang, Jawa Barat, Indonesia",
-    status: "Available for Projects & Collaboration",
+    status: "Terbuka untuk proyek dan kolaborasi",
     avatar: "/images/rendra-casual.jpg",
     heroImages: [
       {
         id: "casual",
         title: "Rendra Nur Yuliadi",
-        subtitle: "Software Developer & AI Specialist",
-        tag: "Profile",
+        subtitle: "Software Developer & Conversational AI",
+        tag: "Profil",
         src: "/images/rendra-casual.jpg",
-        description: "Berfokus pada arsitektur software, model bahasa besar (LLM), dan otomasi kecerdasan buatan."
+        description: "Mengerjakan pengembangan web, chatbot berbasis LLM, dan integrasi API."
       },
       {
         id: "poster1",
-        title: "System Architecture & Engineering",
-        subtitle: "Creative Tech Poster 01",
+        title: "Web Full-Stack & IoT",
+        subtitle: "Poster 01",
         tag: "Engineering",
         src: "/images/rendra-poster-1.jpg",
-        description: "Eksplorasi visual konsep rekayasa sistem, IoT mikrokontroler, dan scalable full-stack web."
+        description: "Ringkasan proyek web full-stack dan IoT berbasis mikrokontroler."
       },
       {
         id: "poster2",
-        title: "Enterprise AI & Conversational Flow",
-        subtitle: "Creative Tech Poster 02",
+        title: "Chatbot Enterprise",
+        subtitle: "Poster 02",
         tag: "GenAI & LLM",
         src: "/images/rendra-poster-2.jpg",
-        description: "Implementasi conversational AI multinasional (LivePerson, Lexus, SPTel) & integrasi multi-agent."
+        description: "Ringkasan proyek chatbot di LivePerson (Lexus, SPTel) dan eksperimen multi-agent."
       }
     ],
     languages: ["Bahasa Indonesia (Native)", "English (Professional Working)"],
     roles: [
-      "AI & GenAI Specialist",
+      "Conversational AI Developer",
       "Full-Stack Web Developer",
-      "Conversational AI Designer",
-      "Software Engineer",
-      "IoT & Hardware Explorer",
-      "LLM & Agentic AI Builder"
+      "Software Developer",
+      "IoT Developer (ESP32)",
+      "LLM & AI Agent Developer"
     ],
     contact: {
       email: "rendranur.dev@gmail.com",
@@ -57,74 +56,75 @@ export const portfolioData = {
   personas: {
     persona1: {
       id: "persona1",
-      badge: "Persona 01: Engineering Focus",
-      title: "Full-Stack Software & AI Chatbot Developer",
-      headline: "Building Digital Experiences Through Code & AI.",
-      bio: "Software Developer yang memiliki ketertarikan mendalam pada pengembangan aplikasi web terdistribusi, Artificial Intelligence, otomatisasi proses bisnis, dan teknologi digital terkini. Berfokus pada arsitektur perangkat lunak fungsional, performa tinggi, scalable, serta pengalaman antarmuka yang intuitif.",
+      badge: "Fokus: Pengembangan Web & Chatbot",
+      title: "Full-Stack Developer & AI Chatbot Developer",
+      headline: "Aplikasi web dan chatbot yang rapi dan mudah dipakai.",
+      bio: "Software developer yang mengerjakan aplikasi web, chatbot AI, dan otomasi proses kerja. Saya menyusun arsitektur aplikasi yang jelas, performanya baik, dan antarmukanya mudah dipakai.",
       highlights: [
-        "Pengalaman Full-Stack (Laravel, React, Node.js, Tailwind, MySQL)",
-        "Implementasi Conversational AI & Custom Functions Node.js di LivePerson",
-        "Rancang bangun arsitektur sistem FAMS, Noventra, dan LMS",
-        "Eksplorasi LLM, Local AI (LM Studio, AnythingLLM), dan REST API"
+        "Full-Stack Web Development",
+        "Conversational AI & Generative AI",
+        "IoT & Hardware Development",
+        "Software Engineering"
       ]
     },
     persona2: {
       id: "persona2",
-      badge: "Persona 02: GenAI & Enterprise Focus",
-      title: "GenAI Specialist & Conversation Designer",
-      headline: "Exploring the Future of AI, Software & Intelligent Systems.",
-      bio: "Mahasiswa Informatika & GenAI Specialist dengan pengalaman profesional di LivePerson menangani implementasi chatbot enterprise multinasional (Lexus Philippines, Lexus Vietnam, SPTel, instansi pemerintahan). Terampil dalam integrasi Large Language Models (OpenAI GPT & Google Gemini), prompt engineering tingkat lanjut, serta konvergensi AI dan perangkat keras IoT.",
+      badge: "Fokus: GenAI & Chatbot Enterprise",
+      title: "Conversational AI Developer",
+      headline: "Chatbot berbasis LLM untuk klien perusahaan dan instansi pemerintah.",
+      bio: "Mahasiswa Informatika yang bekerja di LivePerson menangani chatbot untuk klien seperti Lexus Philippines, Lexus Vietnam, SPTel, dan beberapa instansi pemerintah daerah. Pekerjaan saya meliputi integrasi LLM (OpenAI GPT dan Google Gemini), penyusunan prompt, dan proyek IoT dengan ESP32.",
       highlights: [
-        "Implementasi Conversational AI Enterprise skala internasional (Lexus PH & VN)",
-        "Migrasi Model AI & optimasi performa respon dari GPT ke Gemini",
-        "Integrasi Hardware IoT ESP32 & RFID dengan Web Dashboard Real-time",
-        "Riset Agentic AI, Function Calling, dan prototipe Humanoid Robotics"
+        "Chatbot enterprise untuk Lexus Philippines dan Lexus Vietnam",
+        "Migrasi model dari GPT ke Gemini dan penyesuaian respons bot",
+        "Integrasi ESP32 dan RFID dengan dashboard web",
+        "Eksperimen AI agent, function calling, dan konsep robot humanoid"
       ]
     }
   },
 
   stats: [
-    { value: "15+", label: "Projects Completed & Researched", icon: "Code2" },
-    { value: "7+", label: "Enterprise & Gov AI Chatbots", icon: "Bot" },
-    { value: "2+", label: "Years Software & AI Exp", icon: "Cpu" },
-    { value: "100%", label: "Commitment to Clean Code", icon: "Sparkles" }
+    { value: "9", label: "Proyek Tercantum", icon: "Code2" },
+    { value: "7", label: "Chatbot Enterprise & Pemerintah", icon: "Bot" },
+    { value: "2+", label: "Tahun Pengalaman Software & AI", icon: "Cpu" },
+    { value: "2", label: "Platform LLM: GPT & Gemini", icon: "Sparkles" }
   ],
 
   experiences: [
     {
-      id: "liveperson",
-      role: "GenAI / AI Conversation Design & Chatbot Developer",
-      company: "LivePerson",
-      period: "September 2024 - Sekarang",
-      type: "Professional / Remote",
-      location: "Global / Remote",
-      description: "Bertanggung jawab atas perancangan, pengembangan, dan pemeliharaan solusi conversational AI berbasis Generative AI pada platform LivePerson AI Studio untuk klien enterprise internasional dan lembaga publik.",
+      id: "savala",
+      role: "AI Chatbot Developer",
+      company: "PT SAVALA Inovasi Indonesia",
+      period: "Juli 2024 - Sekarang",
+      type: "Pengalaman Profesional",
+      location: "Indonesia",
+      description: "Terlibat dalam pengembangan solusi chatbot berbasis AI untuk kebutuhan bisnis dan layanan pelanggan.",
       responsibilities: [
-        "Merancang alur percakapan (conversation flow) interaktif dan natural untuk sistem conversational AI.",
-        "Mengembangkan prompt engineering tingkat lanjut dan mengintegrasikan Large Language Models (LLM).",
-        "Mengintegrasikan OpenAI GPT dan Google Gemini ke dalam alur kerja bot serta melakukan migrasi arsitektur dari GPT ke Gemini.",
-        "Mengelola Knowledge AI, knowledge base, instruksi agen, dan intent modeling.",
-        "Mengintegrasikan REST API dan mengembangkan custom functions menggunakan Node.js untuk dynamic payload & dynamic carousel responses.",
-        "Melakukan evaluasi AI response quality, pengujian regresi fungsional, dan optimasi latensi respon.",
-        "Berkolaborasi dengan stakeholder internasional dalam implementasi bot multibahasa."
+        "Merancang alur percakapan chatbot.",
+        "Mengembangkan prompt dan instruksi AI.",
+        "Mengintegrasikan model OpenAI GPT dan Google Gemini ke dalam Bot Conversation.",
+        "Mengelola knowledge base dan intent.",
+        "Mengembangkan custom function menggunakan Node.js.",
+        "Mengintegrasikan REST API dan mengolah data JSON."
       ],
-      technologies: ["LivePerson AI Studio", "Google Gemini", "OpenAI GPT", "Node.js", "REST API", "Prompt Engineering", "Knowledge AI", "JSON"]
+      projects: ["Lexus Philippines", "Lexus Vietnam", "SPTel", "Sekolah Auliya", "Kabupaten Bogor", "Kota Bogor", "Kabupaten Karawang"],
+      technologies: ["LivePerson AI Studio", "OpenAI GPT", "Google Gemini", "Node.js", "REST API", "Knowledge AI"]
     },
     {
-      id: "freelance-ai",
-      role: "Freelance AI Chatbot & Web Developer",
-      company: "Independent / Digital Projects",
-      period: "2023 - 2024",
-      type: "Freelance / Contract",
-      location: "Sumedang & Remote",
-      description: "Membantu UMKM, institusi pendidikan, dan klien mandiri dalam membangun platform web modern, otomatisasi alur kerja digital, serta integrasi bot interaktif.",
+      id: "tahungoding",
+      role: "Pengurus / Anggota",
+      company: "UKM TahuNgoding - UNSAP",
+      period: "2024 - Sekarang",
+      type: "Pengalaman Organisasi",
+      location: "UNSAP",
+      description: "Terlibat dalam kegiatan organisasi dan pengembangan program kerja di lingkungan UKM TahuNgoding.",
       responsibilities: [
-        "Membangun aplikasi web full-stack modern dengan React, Vite, Node.js, dan Tailwind CSS.",
-        "Merancang sistem otomasi pengumpulan data, scraping, dan integrasi WhatsApp/Web chatbot.",
-        "Melakukan optimasi performa web, responsive design, dan koneksi database MySQL/MongoDB.",
-        "Memberikan konsultasi teknis terkait adopsi tool GenAI untuk produktivitas tim."
+        "Berpartisipasi dalam kegiatan dan program kerja organisasi.",
+        "Terlibat dalam kegiatan divisi Diklatbang dan BPH.",
+        "Membantu koordinasi kegiatan dan komunikasi antaranggota.",
+        "Berkontribusi dalam pengembangan LMS TahuNgoding sebagai QA dan penyusunan panduan pengguna untuk mentor dan anggota."
       ],
-      technologies: ["React.js", "Tailwind CSS", "Node.js", "Laravel", "MySQL", "Vite", "Figma"]
+      projects: [],
+      technologies: []
     }
   ],
 
@@ -132,18 +132,18 @@ export const portfolioData = {
     {
       id: "lexus-ph",
       title: "Lexus Philippines AI Assistant",
-      subtitle: "Automotive Enterprise Conversational AI",
+      subtitle: "Chatbot Enterprise untuk Otomotif",
       category: "ai-enterprise",
       categoryLabel: "Enterprise AI",
-      status: "Production / Live Implementation",
+      status: "Production",
       client: "Lexus Philippines (via LivePerson)",
-      description: "Solusi conversational AI terintegrasi untuk melayani calon pembeli mobil mewah Lexus di Filipina. Menangani pertanyaan model, spesifikasi, simulasi pembiayaan, alur booking test drive, serta lead collection otomatis.",
-      problem: "Tingginya volume pertanyaan pelanggan seputar katalog mobil premium di luar jam kerja yang membutuhkan respon cepat, akurat, dan representasi brand yang prestisius.",
+      description: "Chatbot untuk calon pembeli Lexus di Filipina. Menjawab pertanyaan model dan spesifikasi, simulasi pembiayaan, booking test drive, dan mengumpulkan data calon pembeli.",
+      problem: "Pertanyaan pelanggan tentang katalog mobil masuk juga di luar jam kerja dan perlu dijawab dengan cepat dan akurat.",
       contributions: [
-        "Merancang alur interaksi cerdas test drive inquiry dan penangkapan lead pelanggan.",
-        "Pengembangan prompt engineering untuk model catalog specification.",
-        "Integrasi REST API ke backend CRM dan integrasi Knowledge Base.",
-        "Pengujian fungsional dan optimasi akurasi jawaban bot."
+        "Merancang alur test drive dan pengumpulan data lead.",
+        "Menyusun prompt untuk jawaban spesifikasi katalog.",
+        "Mengintegrasikan REST API ke CRM dan knowledge base.",
+        "Menguji fungsi bot dan memperbaiki akurasi jawaban."
       ],
       technologies: ["LivePerson AI Studio", "OpenAI GPT", "Google Gemini", "REST API", "Prompt Engineering"],
       featured: true,
@@ -153,18 +153,18 @@ export const portfolioData = {
     {
       id: "lexus-vn",
       title: "Lexus Vietnam Conversational AI",
-      subtitle: "Multilingual Enterprise AI with Gemini Migration",
+      subtitle: "Chatbot Multibahasa dengan Migrasi ke Gemini",
       category: "ai-enterprise",
       categoryLabel: "Enterprise AI",
-      status: "Production / Live Implementation",
+      status: "Production",
       client: "Lexus Vietnam (via LivePerson)",
-      description: "Implementasi chatbot conversational AI yang mendukung interaksi pelanggan Lexus di Vietnam dengan kemampuan bilingual, info dealer terdekat, serta migrasi menyeluruh dari GPT ke Google Gemini.",
-      problem: "Kebutuhan respon cepat dalam bahasa lokal dan efisiensi latensi/biaya API melalui migrasi model LLM generasi terbaru.",
+      description: "Chatbot untuk pelanggan Lexus di Vietnam dengan dukungan dua bahasa dan informasi dealer terdekat. Implementasi AI-nya dipindahkan dari GPT ke Google Gemini.",
+      problem: "Pelanggan perlu dijawab dalam bahasa lokal, dan klien ingin menurunkan latensi dan biaya API.",
       contributions: [
-        "Memimpin alur migrasi AI implementation dari OpenAI GPT ke Google Gemini.",
-        "Perancangan alur percakapan harga, ketersediaan dealer, dan layanan purna jual.",
-        "Regression testing performa model dan akurasi knowledge base.",
-        "Konfigurasi respons dinamis berbasis lokasi dealer."
+        "Memimpin migrasi implementasi AI dari OpenAI GPT ke Google Gemini.",
+        "Merancang alur percakapan untuk harga, ketersediaan dealer, dan layanan purna jual.",
+        "Menjalankan regression test untuk performa model dan akurasi knowledge base.",
+        "Mengatur respons dinamis berdasarkan lokasi dealer."
       ],
       technologies: ["LivePerson AI Studio", "Google Gemini", "OpenAI GPT", "REST API", "JSON"],
       featured: true,
@@ -173,19 +173,19 @@ export const portfolioData = {
     },
     {
       id: "fams",
-      title: "FAMS — Smart Faculty Asset & Facility System",
-      subtitle: "Full-Stack Web App & RFID ESP32 Hardware Integration",
+      title: "FAMS — Faculty Asset & Facility System",
+      subtitle: "Aplikasi Web dengan Integrasi RFID ESP32",
       category: "web-software",
       categoryLabel: "Full-Stack & Hardware",
-      status: "Active Academic Development",
+      status: "Dalam pengembangan (akademik)",
       client: "Fakultas Teknologi Informasi UNSAP",
-      description: "Sistem informasi manajemen aset dan fasilitas kampus berbasis web modern yang diintegrasikan dengan pemindai RFID hardware ESP32 untuk otomasi peminjaman, pengembalian, dan pelaporan kerusakan barang.",
-      problem: "Pencatatan aset kampus konvensional rentan kehilangan data, birokrasi peminjaman lambat, dan tidak adanya pelacakan kondisi fisik barang secara real-time.",
+      description: "Sistem manajemen aset dan fasilitas kampus berbasis web yang terhubung dengan pembaca RFID ESP32. Dipakai untuk peminjaman, pengembalian, dan laporan kerusakan barang.",
+      problem: "Pencatatan aset secara manual rawan hilang, peminjaman lambat, dan kondisi barang tidak terpantau.",
       contributions: [
-        "Membangun antarmuka modern menggunakan React, Inertia.js, dan Tailwind CSS.",
-        "Merancang arsitektur backend Laravel 13, database MySQL, dan Role-Based Access Control (Admin, Manajer, Peminjam).",
-        "Mengembangkan mikrokontroler ESP32 dengan modul RFID RC522 untuk scan kartu otomatis via API.",
-        "Fitur alur persetujuan, OTP reset password, dan sistem tiket pengaduan kerusakan."
+        "Membangun antarmuka dengan React, Inertia.js, dan Tailwind CSS.",
+        "Merancang backend Laravel 13, database MySQL, dan Role-Based Access Control (Admin, Manajer, Peminjam).",
+        "Memprogram ESP32 dengan modul RFID RC522 untuk scan kartu yang terhubung ke API.",
+        "Membuat alur persetujuan, reset password dengan OTP, dan tiket laporan kerusakan."
       ],
       technologies: ["Laravel 13", "React 19", "Inertia.js", "Tailwind CSS", "MySQL", "ESP32", "RFID RC522"],
       featured: true,
@@ -195,18 +195,18 @@ export const portfolioData = {
     {
       id: "noventra",
       title: "NOVENTRA — Smart City & Smart Home IoT",
-      subtitle: "IoT Miniature Prototype with Web Monitoring",
+      subtitle: "Prototipe IoT Skala Miniatur dengan Monitoring Web",
       category: "iot-robotics",
       categoryLabel: "IoT & Hardware",
-      status: "Working Prototype",
-      client: "Research & Prototype Project",
-      description: "Miniatur ekosistem cerdas yang menggabungkan otomasi smart home (lampu pintar, kipas relay, kendali web) dan smart city (palang parkir otomatis ultrasonik, sensor ketinggian air pendeteksi banjir).",
-      problem: "Membuktikan kelayakan integrasi sensor IoT berbiaya rendah dengan dashboard monitoring berbasis web secara real-time.",
+      status: "Prototipe berfungsi",
+      client: "Proyek riset dan prototipe",
+      description: "Miniatur yang menggabungkan smart home (lampu, kipas dengan relay, kendali lewat web) dan smart city (palang parkir otomatis dengan sensor ultrasonik, sensor ketinggian air untuk deteksi banjir).",
+      problem: "Menguji apakah sensor IoT berbiaya rendah bisa dipantau lewat dashboard web secara real-time.",
       contributions: [
-        "Pemrograman firmware ESP32 dan Arduino untuk sensor ultrasonik, servo, dan relay.",
-        "Pengembangan dashboard web Next.js/Tailwind untuk visualisasi data sensor live.",
-        "Integrasi logika peringatan dini banjir dan deteksi slot parkir kosong.",
-        "Eksperimen interpretasi perintah bahasa alami (NLP/AI) untuk trigger saklar."
+        "Memprogram firmware ESP32 dan Arduino untuk sensor ultrasonik, servo, dan relay.",
+        "Membuat dashboard web dengan Next.js dan Tailwind untuk data sensor secara langsung.",
+        "Membuat logika peringatan banjir dan deteksi slot parkir kosong.",
+        "Mencoba perintah bahasa natural untuk menyalakan dan mematikan perangkat."
       ],
       technologies: ["ESP32", "Arduino", "Ultrasonic Sensor", "Servo Motor", "Next.js", "Tailwind CSS", "Relay"],
       featured: true,
@@ -216,18 +216,18 @@ export const portfolioData = {
     {
       id: "tahungoding-lms",
       title: "Tahungoding Learning Management System",
-      subtitle: "Role-Based Developer Community Learning Platform",
+      subtitle: "Platform Belajar Komunitas Developer",
       category: "web-software",
       categoryLabel: "Web Development",
-      status: "Platform Concept & Prototype",
-      client: "Tahungoding Community",
-      description: "Platform edukasi digital terstruktur untuk mengelola kurikulum belajar, submission tugas, manajemen mentor, dan pertemuan divisi (Frontend, Backend, UI/UX, dan Office).",
-      problem: "Manajemen belajar komunitas yang tercecer di berbagai grup chat membutuhkan satu pusat repositori materi dan pelacakan progress tugas member.",
+      status: "Konsep dan prototipe",
+      client: "Komunitas Tahungoding",
+      description: "Platform belajar untuk mengelola kurikulum, pengumpulan tugas, mentor, dan pertemuan divisi (Frontend, Backend, UI/UX, dan Office).",
+      problem: "Materi dan tugas komunitas tersebar di banyak grup chat, sehingga perlu satu tempat untuk materi dan progres anggota.",
       contributions: [
-        "Desain antarmuka dashboard pembelajaran interaktif berbasis role (Admin, Mentor, Student).",
-        "Manajemen modul belajar terintegrasi dengan video YouTube dan artikel teknis.",
-        "Sistem pengumpulan tugas dan review nilai dari mentor ke siswa.",
-        "Manajemen data anggota dan jadwal pertemuan divisi."
+        "Mendesain dashboard berbasis role (Admin, Mentor, Student).",
+        "Mengelola modul belajar yang berisi video YouTube dan artikel teknis.",
+        "Membuat fitur pengumpulan tugas dan penilaian oleh mentor.",
+        "Mengelola data anggota dan jadwal pertemuan divisi."
       ],
       technologies: ["React.js", "Node.js", "Tailwind CSS", "REST API", "Figma"],
       featured: false,
@@ -237,18 +237,18 @@ export const portfolioData = {
     {
       id: "sekolah-auliya",
       title: "Sekolah Auliya Virtual Assistant",
-      subtitle: "Educational Conversational AI System",
+      subtitle: "Chatbot untuk Sekolah",
       category: "ai-enterprise",
       categoryLabel: "Conversational AI",
-      status: "Production / Deployed",
+      status: "Production",
       client: "Sekolah Auliya (via LivePerson)",
-      description: "Asisten virtual berbasis Generative AI yang dirancang untuk melayani ribuan orang tua siswa dan calon pendaftar terkait PPDB, informasi kurikulum, biaya pendidikan, dan ekstrakurikuler.",
-      problem: "Layanan informasi pendaftaran sekolah overload saat musim penerimaan siswa baru.",
+      description: "Asisten virtual berbasis Generative AI untuk orang tua siswa dan calon pendaftar. Menjawab pertanyaan seputar PPDB, kurikulum, biaya pendidikan, dan ekstrakurikuler.",
+      problem: "Layanan informasi pendaftaran kewalahan saat musim penerimaan siswa baru.",
       contributions: [
-        "Penyusunan Knowledge Base komprehensif kurikulum dan jadwal pendaftaran.",
-        "Konfigurasi LLM prompt Google Gemini untuk gaya bahasa ramah, sopan, dan solutif.",
-        "Implementasi conversation flow bercabang untuk tanya jawab biaya dan administrasi.",
-        "Evaluasi respon akurasi kebijakan sekolah."
+        "Menyusun knowledge base kurikulum dan jadwal pendaftaran.",
+        "Mengatur prompt Google Gemini agar bahasanya ramah dan sopan.",
+        "Membuat alur percakapan bercabang untuk pertanyaan biaya dan administrasi.",
+        "Memeriksa akurasi jawaban terhadap kebijakan sekolah."
       ],
       technologies: ["LivePerson AI Studio", "Google Gemini", "Knowledge AI", "Prompt Engineering"],
       featured: false,
@@ -256,20 +256,59 @@ export const portfolioData = {
       image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80"
     },
     {
-      id: "public-service-chatbots",
-      title: "Jawa Barat Public Services AI Suite",
-      subtitle: "Kota Bogor, Kab. Bogor & Karawang Citizen Assistants",
+      id: "public-service-bogor",
+      title: "Chatbot Layanan Kota Bogor",
+      subtitle: "Asisten Informasi dan Layanan Publik",
       category: "ai-enterprise",
       categoryLabel: "Public Sector AI",
-      status: "Deployed Implementation",
-      client: "Pemerintah Daerah (Kota Bogor, Kab. Bogor, Karawang)",
-      description: "Serangkaian asisten virtual interaktif untuk transparansi informasi publik, panduan administrasi kependudukan (KTP, Akta, Surat Pengantar), serta panduan layanan dinas bagi masyarakat.",
-      problem: "Masyarakat membutuhkan jawaban cepat dan akurat seputar syarat berkas layanan pemerintahan tanpa antre berjam-jam.",
+      status: "Production",
+      client: "Pemerintah Kota Bogor",
+      description: "Chatbot untuk memberikan informasi layanan publik dan panduan administrasi kependudukan.",
+      problem: "Warga membutuhkan informasi yang cepat dan jelas mengenai layanan pemerintahan.",
       contributions: [
-        "Penyusunan prompt conversational AI berbasis dokumen regulasi daerah.",
-        "Pengembangan penanganan intent warga yang beragam bahasa dan struktur kalimat.",
-        "Konfigurasi dan pengujian alur percakapan publik di platform LivePerson.",
-        "Monitoring akurasi jawaban dan adaptasi respons instansi."
+        "Menyusun prompt berdasarkan dokumen regulasi daerah.",
+        "Mengatur dan menguji alur percakapan di LivePerson.",
+        "Memantau akurasi jawaban dan menyesuaikan respons."
+      ],
+      technologies: ["LivePerson", "Generative AI", "Knowledge Management", "Prompt Engineering"],
+      featured: false,
+      accentColor: "from-sky-500 to-blue-700",
+      image: "https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      id: "public-service-kab-bogor",
+      title: "Chatbot Layanan Kabupaten Bogor",
+      subtitle: "Asisten Informasi Administrasi dan Layanan Publik",
+      category: "ai-enterprise",
+      categoryLabel: "Public Sector AI",
+      status: "Production",
+      client: "Pemerintah Kabupaten Bogor",
+      description: "Chatbot untuk membantu masyarakat menemukan informasi layanan administrasi kependudukan dan dinas pemerintah.",
+      problem: "Informasi persyaratan layanan perlu disampaikan secara cepat, terstruktur, dan mudah dipahami.",
+      contributions: [
+        "Menyusun knowledge base berdasarkan dokumen layanan.",
+        "Mengembangkan prompt dan alur percakapan.",
+        "Menguji konsistensi jawaban chatbot."
+      ],
+      technologies: ["LivePerson", "Generative AI", "Knowledge Management", "Prompt Engineering"],
+      featured: false,
+      accentColor: "from-sky-500 to-blue-700",
+      image: "https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      id: "public-service-karawang",
+      title: "Chatbot Layanan Kabupaten Karawang",
+      subtitle: "Asisten Informasi dan Administrasi Publik",
+      category: "ai-enterprise",
+      categoryLabel: "Public Sector AI",
+      status: "Production",
+      client: "Pemerintah Kabupaten Karawang",
+      description: "Chatbot untuk memberikan panduan layanan publik dan administrasi kependudukan kepada masyarakat.",
+      problem: "Masyarakat membutuhkan jawaban awal yang jelas sebelum mengakses layanan pemerintah.",
+      contributions: [
+        "Merancang alur percakapan layanan.",
+        "Menyesuaikan prompt dengan informasi resmi.",
+        "Menguji akurasi dan pemahaman pertanyaan pengguna."
       ],
       technologies: ["LivePerson", "Generative AI", "Knowledge Management", "Prompt Engineering"],
       featured: false,
@@ -278,18 +317,18 @@ export const portfolioData = {
     },
     {
       id: "sptel-ai",
-      title: "SPTel Enterprise Conversational Experience",
-      subtitle: "B2B Telecom & Smart Infrastructure AI",
+      title: "SPTel Conversational AI",
+      subtitle: "Chatbot B2B untuk Telekomunikasi",
       category: "ai-enterprise",
       categoryLabel: "Enterprise AI",
-      status: "Production Implementation",
+      status: "Production",
       client: "SPTel (via LivePerson)",
-      description: "Chatbot enterprise untuk mendukung interaksi klien korporasi dalam memahami solusi konektivitas serat optik dan infrastruktur komputasi tepi (edge computing).",
-      problem: "Kompleksitas produk telekomunikasi B2B yang membutuhkan panduan teknis awal bagi prospek bisnis.",
+      description: "Chatbot untuk klien korporasi SPTel yang ingin memahami layanan konektivitas serat optik dan infrastruktur edge computing.",
+      problem: "Produk telekomunikasi B2B rumit, sehingga calon klien butuh penjelasan teknis awal.",
       contributions: [
-        "Konfigurasi alur percakapan berbasis konteks industri telekomunikasi.",
-        "Optimasi instruksi AI dan penyesuaian instruksi prompt generatif.",
-        "Pemeriksaan kualitas output model terhadap kueri teknis enterprise."
+        "Mengatur alur percakapan sesuai konteks industri telekomunikasi.",
+        "Menyesuaikan instruksi AI dan prompt generatif.",
+        "Memeriksa kualitas jawaban model untuk pertanyaan teknis."
       ],
       technologies: ["LivePerson", "Generative AI", "Prompt Engineering", "Testing"],
       featured: false,
@@ -297,19 +336,19 @@ export const portfolioData = {
       image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80"
     },
     {
-      id: "ai-agent-automation",
-      title: "Agentic AI & Function Calling Lab",
-      subtitle: "Multi-Step Autonomous Task Execution",
+      id: "genai-chatbot",
+      title: "GenAI Chatbot",
+      subtitle: "Chatbot Berbasis LLM dan Integrasi Function Calling",
       category: "ai-research",
-      categoryLabel: "AI & Research",
-      status: "Research & Experimentation",
-      client: "Personal Exploration",
-      description: "Riset implementasi Agentic AI yang mampu mengurai instruksi bahasa manusia, menentukan aksi berantai, memanggil tools/API eksternal (Function Calling), dan menyusun output terstruktur.",
-      problem: "Menjembatani LLM dari sekadar menjawab teks menjadi sistem yang mampu mengeksekusi aksi nyata ke sistem perangkat lunak lain.",
+      categoryLabel: "AI & Generative AI",
+      status: "Pengembangan dan eksperimen",
+      client: "Proyek pengembangan AI",
+      description: "Pengembangan chatbot berbasis model generative AI dengan kemampuan pemanggilan fungsi, integrasi API, dan pengelolaan knowledge base.",
+      problem: "Chatbot perlu memberikan jawaban yang relevan dan dapat terhubung dengan layanan sistem lain.",
       contributions: [
-        "Eksperimen Tool Calling OpenAI & Gemini API menggunakan JavaScript & Node.js.",
-        "Perancangan context management untuk mempertahankan memori percakapan berantai.",
-        "Pembuatan wrapper API untuk eksekusi perintah otomatis ke database."
+        "Mencoba tool calling di OpenAI dan Gemini API dengan JavaScript dan Node.js.",
+        "Mengatur context management agar riwayat percakapan tetap terjaga.",
+        "Membuat wrapper API untuk menjalankan perintah ke database."
       ],
       technologies: ["OpenAI API", "Google Gemini API", "Node.js", "Function Calling", "JSON Schema"],
       featured: false,
@@ -318,18 +357,18 @@ export const portfolioData = {
     },
     {
       id: "ai-humanoid-concept",
-      title: "AI Humanoid Robot Concept & Architecture",
-      subtitle: "LLM Computer Vision & Motor Actuation Research",
+      title: "Konsep Arsitektur Robot Humanoid dengan LLM",
+      subtitle: "Riset LLM, Computer Vision, dan Penggerak Servo",
       category: "iot-robotics",
-      categoryLabel: "Robotics Exploration",
-      status: "Conceptual Exploration & Architecture",
-      client: "Personal Research (Not Deployed)",
-      description: "Eksplorasi arsitektur robot humanoid yang mengombinasikan model LLM multimodal, computer vision untuk pengenalan objek, sensor suhu/jarak, dan mikrokontroler penggerak motor servo.",
-      problem: "Perancangan jembatan latensi rendah antara penalaran AI cerdas dengan respon fisik aktuator pada lingkungan nyata.",
+      categoryLabel: "Robotics",
+      status: "Konsep dan perancangan (belum dibuat)",
+      client: "Riset pribadi",
+      description: "Perancangan arsitektur robot humanoid yang menggabungkan LLM multimodal, computer vision untuk mengenali objek, sensor suhu dan jarak, serta mikrokontroler untuk menggerakkan servo.",
+      problem: "Menghubungkan hasil penalaran AI dengan gerakan aktuator fisik dengan latensi rendah.",
       contributions: [
-        "Penyusunan blueprint arsitektur integrasi Local LLM dengan mikrokontroler ESP32.",
-        "Pemetaan skema function calling untuk perintah fisik (gerak servo, pembacaan sensor).",
-        "Analisis kebutuhan daya dan modul computer vision berdaya komputasi hemat."
+        "Menyusun rancangan integrasi LLM lokal dengan mikrokontroler ESP32.",
+        "Memetakan skema function calling untuk perintah fisik (gerak servo, pembacaan sensor).",
+        "Menganalisis kebutuhan daya dan modul computer vision yang hemat komputasi."
       ],
       technologies: ["Microcontrollers", "Local LLM", "Computer Vision", "Servo Logic", "Robotics Hardware"],
       featured: false,
@@ -338,48 +377,96 @@ export const portfolioData = {
     }
   ],
 
+  certificates: [
+    {
+      id: "sample-web-development",
+      title: "Sertifikat Pengembangan Web",
+      category: "WEB DEVELOPMENT",
+      issuer: "Penyelenggara Contoh",
+      date: "Tahun",
+      description: "Konten dummy untuk menampilkan layout sertifikat. Ganti dengan aset, penerbit, tanggal, dan deskripsi sertifikat asli.",
+      credentialId: "SAMPLE-WEB-001",
+      accent: "#22d3ee",
+      skills: ["HTML & CSS", "JavaScript", "React"]
+    },
+    {
+      id: "sample-generative-ai",
+      title: "Sertifikat Generative AI",
+      category: "ARTIFICIAL INTELLIGENCE",
+      issuer: "Penyelenggara Contoh",
+      date: "Tahun",
+      description: "Konten dummy untuk menampilkan layout sertifikat. Ganti dengan aset, penerbit, tanggal, dan deskripsi sertifikat asli.",
+      credentialId: "SAMPLE-AI-002",
+      accent: "#a78bfa",
+      skills: ["Generative AI", "Prompt Engineering", "LLM"]
+    },
+    {
+      id: "sample-iot",
+      title: "Sertifikat Internet of Things",
+      category: "IOT & HARDWARE",
+      issuer: "Penyelenggara Contoh",
+      date: "Tahun",
+      description: "Konten dummy untuk menampilkan layout sertifikat. Ganti dengan aset, penerbit, tanggal, dan deskripsi sertifikat asli.",
+      credentialId: "SAMPLE-IOT-003",
+      accent: "#fbbf24",
+      skills: ["ESP32", "Sensor", "Integrasi Hardware"]
+    }
+  ],
+
   technicalSkills: {
     frontend: [
       { name: "React.js", level: "Advanced", icon: "Atom" },
-      { name: "Tailwind CSS", level: "Expert", icon: "Palette" },
+      { name: "Tailwind CSS", level: "Advanced", icon: "Palette" },
       { name: "JavaScript (ES6+)", level: "Advanced", icon: "Code" },
       { name: "TypeScript", level: "Intermediate", icon: "FileCode" },
       { name: "Next.js", level: "Intermediate", icon: "Globe" },
-      { name: "HTML5 & CSS3", level: "Expert", icon: "Layers" },
-      { name: "Vite / Inertia.js", level: "Advanced", icon: "Zap" }
+      { name: "HTML5 & CSS3", level: "Advanced", icon: "Layers" },
+      { name: "Vite & Inertia.js", level: "Advanced", icon: "Zap" }
     ],
     backend: [
       { name: "Node.js", level: "Advanced", icon: "Server" },
-      { name: "REST API Design", level: "Advanced", icon: "Repeat" },
+      { name: "REST API Development & Integration", level: "Advanced", icon: "Repeat" },
       { name: "PHP & Laravel", level: "Intermediate", icon: "ShieldCheck" },
+      { name: "PHP", level: "Intermediate", icon: "ShieldCheck" },
+      { name: "Java", level: "Intermediate", icon: "Coffee" },
+      { name: "C#", level: "Intermediate", icon: "Hash" },
       { name: "MySQL", level: "Advanced", icon: "Database" },
       { name: "MongoDB", level: "Intermediate", icon: "Box" },
-      { name: "Python", level: "Intermediate", icon: "Terminal" }
+      { name: "Python", level: "Intermediate", icon: "Terminal" },
+      { name: "Web Scraping", level: "Intermediate", icon: "Search" },
+      { name: "JSON", level: "Intermediate", icon: "Braces" }
     ],
     ai: [
-      { name: "LivePerson AI Studio", level: "Expert", icon: "Bot" },
+      { name: "LivePerson AI Studio", level: "Advanced", icon: "Bot" },
       { name: "Google Gemini", level: "Advanced", icon: "Sparkles" },
       { name: "OpenAI GPT", level: "Advanced", icon: "Cpu" },
-      { name: "Prompt Engineering", level: "Expert", icon: "Wand2" },
+      { name: "Prompt Engineering", level: "Advanced", icon: "Wand2" },
       { name: "Conversational Design", level: "Advanced", icon: "MessageSquare" },
       { name: "Knowledge AI & RAG", level: "Advanced", icon: "BookOpen" },
-      { name: "Local LLM (LM Studio)", level: "Intermediate", icon: "HardDrive" },
-      { name: "Agentic Tool Calling", level: "Intermediate", icon: "Boxes" }
+      { name: "Local LLM & Model Deployment", level: "Intermediate", icon: "HardDrive" },
+      { name: "Function Calling & Tool Integration", level: "Intermediate", icon: "Boxes" },
+      { name: "OpenCode", level: "Intermediate", icon: "CodeXml" },
+      { name: "OpenRouter", level: "Intermediate", icon: "Route" },
+      { name: "AnythingLLM", level: "Intermediate", icon: "BrainCircuit" },
+      { name: "NVIDIA NIM", level: "Intermediate", icon: "Gauge" },
+      { name: "LanceDB", level: "Intermediate", icon: "DatabaseZap" },
+      { name: "Embedding Models", level: "Intermediate", icon: "Binary" }
     ],
     iot: [
       { name: "ESP32", level: "Advanced", icon: "Cpu" },
       { name: "Arduino IDE", level: "Intermediate", icon: "Radio" },
+      { name: "Arduino", level: "Intermediate", icon: "CircuitBoard" },
       { name: "RFID RC522", level: "Advanced", icon: "Scan" },
-      { name: "Ultrasonic Sensors", level: "Advanced", icon: "Wifi" },
-      { name: "Relay Modules", level: "Advanced", icon: "Power" },
-      { name: "Hardware-to-API", level: "Advanced", icon: "Share2" }
+      { name: "Ultrasonic Sensor", level: "Advanced", icon: "Wifi" },
+      { name: "Relay Module", level: "Advanced", icon: "Power" },
+      { name: "Hardware-to-API Integration", level: "Advanced", icon: "Share2" }
     ],
     tools: [
       { name: "Git & GitHub", level: "Advanced", icon: "GitBranch" },
-      { name: "VS Code & VSCodium", level: "Expert", icon: "Laptop" },
+      { name: "VS Code & VSCodium", level: "Advanced", icon: "Laptop" },
       { name: "Figma", level: "Intermediate", icon: "Layout" },
       { name: "Postman", level: "Advanced", icon: "Send" },
-      { name: "Google Sheets API", level: "Advanced", icon: "Table" }
+      { name: "Google Sheets API Integration", level: "Advanced", icon: "Table" }
     ]
   },
 
@@ -387,88 +474,169 @@ export const portfolioData = {
     university: "Universitas Sebelas April (UNSAP)",
     faculty: "Fakultas Teknologi Informasi",
     studyProgram: "S1 Informatika",
-    currentStatus: "Semester 5 (Active)",
+    currentStatus: "Semester 5 (Aktif)",
     location: "Sumedang, Jawa Barat",
-    focus: [
-      "Software Engineering & System Architecture",
-      "Artificial Intelligence & Machine Learning",
-      "Web Application Development",
-      "Internet of Things & Microcontrollers",
-      "Database Systems & API Engineering"
-    ],
-    achievements: [
-      "Pengembangan sistem FAMS terintegrasi RFID untuk fakultas",
-      "Rancang bangun prototipe Noventra Smart City",
-      "Aktif sebagai pengembang conversational AI untuk institusi"
+    timeline: [
+      {
+        id: "sdn2-sumedang",
+        institution: "SD Negeri 2 Sumedang",
+        level: "SD",
+        program: "Pendidikan Dasar",
+        status: "Lulus",
+        period: "Pendidikan Dasar",
+        detail: "SD",
+        location: "Sumedang, Jawa Barat",
+        description: "Tahap pendidikan dasar yang menjadi fondasi pembelajaran akademik dan pengembangan karakter.",
+        focus: [
+          "Dasar akademik",
+          "Kemampuan membaca",
+          "Kemampuan berhitung",
+          "Pembentukan karakter"
+        ]
+      },
+      {
+        id: "smpn3-sumedang",
+        institution: "SMP Negeri 3 Sumedang",
+        level: "SMP",
+        program: "Pendidikan Menengah Pertama",
+        status: "Lulus",
+        period: "Pendidikan Menengah",
+        detail: "SMP",
+        location: "Sumedang, Jawa Barat",
+        description: "Melanjutkan pembelajaran umum dan mulai mengembangkan minat pada bidang teknologi serta pembelajaran mandiri.",
+        focus: [
+          "Pembelajaran umum",
+          "Kerja kelompok",
+          "Pengembangan minat",
+          "Kemandirian belajar"
+        ]
+      },
+      {
+        id: "smkn1-sumedang",
+        institution: "SMK Negeri 1 Sumedang",
+        level: "SMK",
+        program: "Rekayasa Perangkat Lunak",
+        status: "Lulus",
+        period: "2021 - 2024",
+        detail: "Jurusan RPL",
+        location: "Sumedang, Jawa Barat",
+        description: "Mempelajari dasar pemrograman, pengembangan aplikasi, basis data, dan praktik pembuatan proyek perangkat lunak.",
+        focus: [
+          "Pemrograman",
+          "Pengembangan aplikasi",
+          "Basis data",
+          "Praktik proyek",
+          "Dasar teknologi informasi"
+        ]
+      },
+      {
+        id: "unsap",
+        institution: "Universitas Sebelas April (UNSAP)",
+        level: "S1",
+        program: "Informatika",
+        status: "Sedang Menempuh Pendidikan",
+        period: "2024 - Sekarang",
+        detail: "Semester 5",
+        location: "Sumedang, Jawa Barat",
+        description: "Mempelajari dasar dan penerapan ilmu komputer, pengembangan perangkat lunak, basis data, serta teknologi informasi.",
+        focus: [
+          "Pengembangan perangkat lunak",
+          "Basis data",
+          "Artificial Intelligence",
+          "Internet of Things",
+          "Arsitektur aplikasi"
+        ]
+      }
     ]
   },
 
-  gallery: [
+  hobbies: [
     {
-      title: "LivePerson AI Conversation Architect",
-      category: "Conversational AI",
-      caption: "Alur perancangan intent, entity, dan prompt context pada LivePerson Bot Builder.",
-      tag: "LivePerson",
-      color: "from-blue-600/30 to-cyan-500/30"
+      id: "drawing",
+      title: "Menggambar",
+      category: "KREATIF",
+      tagline: "SKETCH IDEAS",
+      description: "Saya menikmati menggambar sebagai cara untuk menuangkan ide dan melatih imajinasi visual."
     },
     {
-      title: "FAMS RFID Scanner & Web Dashboard",
-      category: "Hardware & Web",
-      caption: "Koneksi hardware pembaca kartu RFID RC522 dengan dashboard peminjaman inventaris.",
-      tag: "ESP32 + Laravel",
-      color: "from-cyan-600/30 to-emerald-500/30"
+      id: "painting",
+      title: "Melukis",
+      category: "KREATIF",
+      tagline: "COLOR & CANVAS",
+      description: "Melukis memberi ruang untuk bereksperimen dengan warna, bentuk, dan suasana."
     },
     {
-      title: "Noventra Smart City Gate & Sensors",
-      category: "IoT Systems",
-      caption: "Sistem pendeteksi slot parkir ultrasonik dan palang gerbang otomatis berbasis servo.",
-      tag: "IoT Prototype",
-      color: "from-purple-600/30 to-pink-500/30"
+      id: "cycling",
+      title: "Bersepeda",
+      category: "AKTIVITAS",
+      tagline: "RIDE & RESET",
+      description: "Bersepeda menjadi kegiatan untuk bergerak, menikmati perjalanan, dan menyegarkan pikiran."
     },
     {
-      title: "Lexus Multilingual Dialog Flow",
-      category: "Enterprise AI",
-      caption: "Model alur percakapan interaktif test drive dan migrasi respon Gemini.",
-      tag: "Enterprise",
-      color: "from-amber-600/30 to-orange-500/30"
+      id: "badminton",
+      title: "Badminton",
+      category: "OLAHRAGA",
+      tagline: "PLAY IN MOTION",
+      description: "Saya suka bermain badminton untuk menjaga kebugaran sekaligus menikmati permainan yang kompetitif."
     },
     {
-      title: "Agentic AI Function Calling Lab",
-      category: "AI Research",
-      caption: "Testing dynamic tool execution dan skema parameter JSON otomatis.",
-      tag: "GenAI",
-      color: "from-emerald-600/30 to-teal-500/30"
+      id: "anime",
+      title: "Menonton Anime",
+      category: "HIBURAN",
+      tagline: "STORIES & WORLDS",
+      description: "Menonton anime adalah salah satu cara saya menikmati cerita, karakter, dan dunia imajinatif."
     },
     {
-      title: "Tahungoding Community LMS",
-      category: "Web Platform",
-      caption: "Antarmuka kurikulum belajar, submission materi, dan review mentor.",
-      tag: "React + Tailwind",
-      color: "from-indigo-600/30 to-blue-500/30"
+      id: "gaming",
+      title: "Bermain Game PC",
+      category: "GAMING",
+      tagline: "PLAY & EXPLORE",
+      description: "Saya menikmati game dengan eksplorasi, kreativitas, cerita, dan dunia yang luas.",
+      items: [
+        "Minecraft Bedrock",
+        "Minecraft Java",
+        "Minecraft Legends",
+        "Minecraft Dungeons 1",
+        "Cyberpunk 2077",
+        "GTA V"
+      ]
+    },
+    {
+      id: "coding",
+      title: "Ngoding",
+      category: "TEKNOLOGI",
+      tagline: "BUILD & LEARN",
+      description: "Di luar pekerjaan dan proyek, saya tetap senang bereksperimen dengan ide dan mencoba hal baru lewat kode."
+    },
+    {
+      id: "uiDesign",
+      title: "Desain UI Aplikasi",
+      category: "DESAIN",
+      tagline: "DESIGN WITH PURPOSE",
+      description: "Saya tertarik merancang antarmuka aplikasi yang menarik, mudah dipahami, dan nyaman digunakan."
     }
   ],
 
   faqs: [
     {
-      question: "Apakah Rendra bisa mengerjakan proyek AI Chatbot untuk bisnis saya?",
-      answer: "Tentu! Saya memiliki pengalaman profesional di LivePerson dalam membangun conversational AI untuk brand multinasional seperti Lexus dan sektor publik. Saya bisa membantu Anda mulai dari conversation flow design, prompt engineering LLM (GPT / Gemini), pembuatan custom function Node.js, integrasi REST API ke sistem internal Anda, hingga knowledge base setup."
+      question: "Bisakah Rendra mengerjakan chatbot AI untuk bisnis saya?",
+      answer: "Bisa. Saya bekerja di LivePerson membangun chatbot untuk klien seperti Lexus dan instansi pemerintah. Pekerjaannya mencakup perancangan alur percakapan, penulisan prompt untuk LLM (GPT atau Gemini), custom function Node.js, integrasi REST API ke sistem Anda, dan penyusunan knowledge base."
     },
     {
-      question: "Teknologi apa saja yang paling sering Anda gunakan untuk Full-Stack Web?",
-      answer: "Untuk frontend, saya mengutamakan React.js, Next.js, dan Tailwind CSS dengan Vite atau Inertia.js untuk pengalaman UI modern, cepat, dan reaktif. Di backend, saya berpengalaman dengan Node.js (REST API, integrasi AI) dan Laravel/PHP untuk arsitektur database yang rapi dan aman."
+      question: "Teknologi apa yang paling sering dipakai untuk web full-stack?",
+      answer: "Di frontend saya memakai React.js, Next.js, dan Tailwind CSS, dengan Vite atau Inertia.js. Di backend saya memakai Node.js untuk REST API dan integrasi AI, serta Laravel/PHP untuk aplikasi dengan struktur database yang jelas."
     },
     {
-      question: "Bagaimana integrasi antara IoT dan Web pada proyek Anda?",
-      answer: "Pada proyek seperti FAMS dan Noventra, saya menghubungkan mikrokontroler ESP32 dengan sensor (RFID, ultrasonik, relay) dan mengirimkan data secara real-time melalui REST API ke backend web, sehingga status perangkat fisik dapat dipantau dan dikendalikan langsung dari browser."
+      question: "Bagaimana IoT dihubungkan dengan web di proyek Anda?",
+      answer: "Di FAMS dan Noventra, ESP32 membaca sensor (RFID, ultrasonik, relay) lalu mengirim datanya lewat REST API ke backend web. Dari browser, status perangkat bisa dipantau dan dikendalikan."
     },
     {
-      question: "Apakah Rendra terbuka untuk kesempatan kerja atau freelance?",
-      answer: "Ya, saya sangat terbuka untuk proyek freelance, kontrak AI chatbot development, kolaborasi web development, maupun peluang magang / pekerjaan yang relevan dengan software engineering dan Generative AI."
+      question: "Apakah Rendra menerima pekerjaan freelance atau full-time?",
+      answer: "Ya. Saya menerima proyek freelance, kontrak pengembangan chatbot, kolaborasi web, serta magang atau pekerjaan di bidang software engineering dan Generative AI."
     },
     {
-      question: "Bagaimana cara mendiskusikan kebutuhan proyek dengan Anda?",
-      answer: "Anda dapat menghubungi saya langsung melalui formulir kontak di website ini, mengirim pesan melalui WhatsApp, atau mengirim email ke alamat yang tertera. Saya biasanya merespons dalam waktu 1x24 jam."
+      question: "Bagaimana cara membahas kebutuhan proyek?",
+      answer: "Hubungi saya lewat formulir kontak di website ini, WhatsApp, atau email. Biasanya saya membalas dalam 1x24 jam."
     }
   ]
 };
-

@@ -7,12 +7,13 @@ import Hero from './components/Hero';
 import SkillsMarquee from './components/SkillsMarquee';
 import About from './components/About';
 import ExperienceTimeline from './components/ExperienceTimeline';
-import CarouselSection from './components/CarouselSection';
 import ProjectsShowcase from './components/ProjectsShowcase';
+import CertificatesShowcase from './components/CertificatesShowcase';
 
-import GallerySection from './components/GallerySection';
+import HobbiesSection from './components/HobbiesSection';
 import EducationSection from './components/EducationSection';
 import FAQSection from './components/FAQSection';
+import NewsletterSubscription from './components/NewsletterSubscription';
 import ContactSection from './components/ContactSection';
 import StickyScrollTop from './components/StickyScrollTop';
 import Footer from './components/Footer';
@@ -51,35 +52,33 @@ export default function App() {
           activePersona={activePersona}
         />
 
-        {/* 6. Work Experience (LivePerson & Freelance) */}
+        {/* 6. Hobbies & Interests */}
+        <HobbiesSection hobbies={portfolioData.hobbies} />
+
+        {/* 7. Academic Background & Education */}
+        <EducationSection education={portfolioData.education} />
+
+        {/* 8. Work Experience */}
         <ExperienceTimeline
           experiences={portfolioData.experiences}
         />
 
-        {/* 7. Flagship Projects Interactive Carousel */}
-        <CarouselSection
-          projects={portfolioData.projects}
-          onSelectProject={(proj) => setSelectedProject(proj)}
-        />
-
-        {/* 8. Full Projects Showcase with Filter & 3D Cards */}
+        {/* 9. Full Projects Showcase */}
         <ProjectsShowcase
           projects={portfolioData.projects}
           selectedProject={selectedProject}
           setSelectedProject={setSelectedProject}
         />
 
+        <CertificatesShowcase certificates={portfolioData.certificates} />
+
         {/* 9. Live Interactive AI Assistant Simulation */}
 
 
-        {/* 10. Engineering Visual Gallery */}
-        <GallerySection items={portfolioData.gallery} />
-
-        {/* 11. Academic Background & Education */}
-        <EducationSection education={portfolioData.education} />
-
         {/* 12. Interactive FAQs Accordion */}
         <FAQSection faqs={portfolioData.faqs} />
+
+        <NewsletterSubscription />
 
         {/* 13. Contact & Collaboration Form with Confetti */}
         <ContactSection

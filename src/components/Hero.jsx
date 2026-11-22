@@ -28,31 +28,66 @@ export default function Hero({ data, activePersona }) {
     {
       id: "no-dream",
       title: "Rendra Nur Yuliadi",
-      subtitle: "Creative & Developer Portrait",
-      badge: "NO DREAM • NO LIMIT",
+      subtitle: "Mahasiswa & Pengembang",
+      badge: "FOKUS PADA SOLUSI",
       src: "/images/hero-rendra-final.png",
-      details: "S1 Informatika UNSAP (Sem 5) • AI Chatbot Developer di LivePerson"
+      details: "Mahasiswa Informatika UNSAP Semester 5 • Pengembang Chatbot AI di LivePerson"
     },
     {
       id: "dream",
       title: "Rendra Nur Yuliadi",
-      subtitle: "Creative Tech Portrait",
-      badge: "DREAM BIG",
+      subtitle: "Pengembangan Teknologi",
+      badge: "TERUS BERKEMBANG",
       src: "/images/hero-rendra-poster-dream.png",
-      details: "Software Engineering, Conversational AI & IoT with Big Plans"
+      details: "Berpengalaman membangun aplikasi web, chatbot, dan sistem IoT"
     },
     {
       id: "rendra",
       title: "Rendra Nur Yuliadi",
-      subtitle: "Personal Developer Portrait",
-      badge: "JUST A GUY",
+      subtitle: "Profil Pribadi",
+      badge: "SIAP BERKOLABORASI",
       src: "/images/hero-rendra-poster-rendra.png",
-      details: "Building functional digital solutions through code, AI, and innovation"
+      details: "Menerjemahkan ide menjadi solusi digital yang bermanfaat"
     }
   ];
 
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [lightboxImage, setLightboxImage] = useState(null);
+  const [selectedSkill, setSelectedSkill] = useState(null);
+
+  const skillDetails = {
+    "Full-Stack Web Development": {
+      label: "Bidang Utama",
+      groups: [
+        { title: "Frontend", items: ["HTML5 & CSS3", "JavaScript (ES6+)", "TypeScript", "React.js", "Next.js", "Tailwind CSS", "Vite", "Inertia.js"] },
+        { title: "Backend", items: ["PHP & Laravel", "Node.js", "REST API", "Integrasi API", "Autentikasi & Otorisasi", "Role-Based Access Control (RBAC)"] },
+        { title: "Database", items: ["MySQL", "MongoDB"] },
+        { title: "Tools", items: ["Git & GitHub", "Postman", "VS Code", "Figma"] }
+      ]
+    },
+    "Conversational AI & Generative AI": {
+      label: "Bidang Profesional",
+      description: "Pengalaman implementasi chatbot untuk klien perusahaan dan instansi.",
+      groups: [
+        { title: "Keahlian Utama", items: ["LivePerson AI Studio", "Pengembangan Chatbot", "Conversation Flow Design", "Prompt Engineering", "OpenAI GPT", "Google Gemini", "Knowledge AI", "Retrieval-Augmented RAG"] },
+        { title: "Integrasi", items: ["Custom Function Node.js", "Function Calling", "Dynamic Response & Carousel", "Integrasi REST API", "Evaluasi Respons AI", "Migrasi Model AI", "Local LLM dengan LM Studio"] }
+      ]
+    },
+    "IoT & Hardware Development": {
+      label: "Bidang Pendukung",
+      groups: [
+        { title: "Perangkat & Pemrograman", items: ["ESP32", "Arduino", "RFID RC522", "Sensor Ultrasonik", "Sensor IR", "Relay", "Servo Motor", "Pemrograman Mikrokontroler"] },
+        { title: "Integrasi Sistem", items: ["Koneksi Hardware ke Web", "Monitoring Data Sensor", "Dashboard IoT", "Kontrol Perangkat Real-time"] }
+      ]
+    },
+    "Software Engineering": {
+      label: "Kemampuan Pendukung",
+      description: "Kemampuan lintas bidang untuk membangun aplikasi yang terstruktur dan mudah dipelihara.",
+      groups: [
+        { title: "Pengembangan", items: ["Software Development", "System & Database Design", "Application Architecture", "Pemrosesan JSON", "Integrasi Sistem", "Otomasi Alur Kerja", "Responsive Web Design", "Debugging & Functional Testing"] }
+      ]
+    }
+  };
 
   // Mouse Parallax tracking
   const containerRef = useRef(null);
@@ -184,7 +219,7 @@ export default function Hero({ data, activePersona }) {
             {/* Dynamic Typewriter Heading */}
             <div className="space-y-3">
               <p className="text-base sm:text-lg font-mono text-zinc-400 font-medium">
-                Halo, selamat datang! <span className="inline-block animate-wave">&#128075;</span>
+                Halo, selamat datang!
               </p>
               
               <div className="min-h-[3.8rem] sm:min-h-[4.5rem] flex items-center justify-center lg:justify-start flex-wrap gap-x-3">
@@ -211,10 +246,20 @@ export default function Hero({ data, activePersona }) {
             {/* Persona Highlights List */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-medium text-zinc-300 pt-1">
               {currentPersona.highlights.map((item, idx) => (
-                <div key={idx} className="flex items-start gap-2.5 bg-zinc-900/60 p-2.5 rounded-xl border border-zinc-800/80">
+                <motion.button
+                  key={idx}
+                  type="button"
+                  whileHover={{ y: -2, scale: 1.01 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => {
+                    if (skillDetails[item]) setSelectedSkill({ title: item, ...skillDetails[item] });
+                  }}
+                  className="flex items-start gap-2.5 text-left bg-zinc-900/60 p-2.5 rounded-xl border border-zinc-800/80 hover:border-zinc-600 hover:bg-zinc-900 transition-colors disabled:cursor-default"
+                  disabled={!skillDetails[item]}
+                >
                   <CheckCircle2 className="h-4 w-4 text-zinc-300 shrink-0 mt-0.5" />
                   <span>{item}</span>
-                </div>
+                </motion.button>
               ))}
             </div>
 
@@ -230,25 +275,22 @@ export default function Hero({ data, activePersona }) {
                 <ArrowRight className="h-4 w-4" />
               </motion.a>
 
-              <motion.a
-                href="#ai-chat"
+              <motion.button
+                type="button"
+                onClick={() => window.dispatchEvent(new CustomEvent('open-ai-assistant'))}
                 whileHover={{ scale: 1.03, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-2 px-5 py-3.5 rounded-2xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-200 hover:text-white font-medium text-sm transition-colors"
+                className="ai-assistant-button group"
               >
-                <Bot className="h-4 w-4 text-zinc-400" />
-                <span>Coba AI Assistant</span>
-              </motion.a>
+                <span className="ai-button-content">
+                  <Bot className="h-4 w-4 text-zinc-300" />
+                  <span>Coba AI Assistant</span>
+                </span>
+                <span className="ai-orbit-dot ai-orbit-dot-1" />
+                <span className="ai-orbit-dot ai-orbit-dot-2" />
+                <span className="ai-orbit-dot ai-orbit-dot-3" />
+              </motion.button>
 
-              <motion.a
-                href="#contact"
-                whileHover={{ scale: 1.03, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-2 px-5 py-3.5 rounded-2xl bg-zinc-900/60 hover:bg-zinc-800 border border-zinc-800/80 text-zinc-400 hover:text-white text-sm transition-colors"
-              >
-                <MessageSquare className="h-4 w-4 text-zinc-400" />
-                <span>Hubungi Saya</span>
-              </motion.a>
             </div>
 
             {/* Social Media Links & Connect Bar */}
@@ -303,15 +345,9 @@ export default function Hero({ data, activePersona }) {
               <div className="absolute inset-0 rounded-3xl bg-zinc-800/20 blur-2xl" />
 
               {/* Companion Card 1 */}
-              <motion.div
-                style={{
-                  x: mousePosition.x * -25 - 55,
-                  y: mousePosition.y * -25 - 20,
-                  rotateZ: -7,
-                }}
-                transition={{ type: "spring", stiffness: 120, damping: 18 }}
+              <div
                 onClick={() => setActiveImageIndex((activeImageIndex + 1) % 3)}
-                className="absolute left-0 top-10 w-[240px] sm:w-[280px] h-[340px] sm:h-[390px] rounded-3xl border border-zinc-800/80 bg-zinc-900/90 overflow-hidden cursor-pointer shadow-2xl opacity-50 hover:opacity-90 transition-opacity z-0"
+                className="absolute left-0 top-10 w-[240px] sm:w-[280px] h-[340px] sm:h-[390px] rotate-[-7deg] rounded-3xl border border-zinc-800/80 bg-zinc-900/90 overflow-hidden cursor-pointer shadow-2xl opacity-50 hover:opacity-90 transition-opacity z-0"
               >
                 <img
                   src={heroImages[(activeImageIndex + 1) % 3].src}
@@ -319,18 +355,12 @@ export default function Hero({ data, activePersona }) {
                   className="w-full h-full object-cover filter grayscale contrast-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-              </motion.div>
+              </div>
 
               {/* Companion Card 2 */}
-              <motion.div
-                style={{
-                  x: mousePosition.x * 25 + 55,
-                  y: mousePosition.y * 25 + 20,
-                  rotateZ: 7,
-                }}
-                transition={{ type: "spring", stiffness: 120, damping: 18 }}
+              <div
                 onClick={() => setActiveImageIndex((activeImageIndex + 2) % 3)}
-                className="absolute right-0 bottom-8 w-[240px] sm:w-[280px] h-[340px] sm:h-[390px] rounded-3xl border border-zinc-800/80 bg-zinc-900/90 overflow-hidden cursor-pointer shadow-2xl opacity-50 hover:opacity-90 transition-opacity z-0"
+                className="absolute right-0 bottom-8 w-[240px] sm:w-[280px] h-[340px] sm:h-[390px] rotate-[7deg] rounded-3xl border border-zinc-800/80 bg-zinc-900/90 overflow-hidden cursor-pointer shadow-2xl opacity-50 hover:opacity-90 transition-opacity z-0"
               >
                 <img
                   src={heroImages[(activeImageIndex + 2) % 3].src}
@@ -338,33 +368,19 @@ export default function Hero({ data, activePersona }) {
                   className="w-full h-full object-cover filter grayscale contrast-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-              </motion.div>
+              </div>
 
               {/* Main Featured Center Card (Active Parallax Layer) */}
-              <motion.div
-                style={{
-                  x: mousePosition.x * 35,
-                  y: mousePosition.y * 35,
-                  rotateX: mousePosition.y * -14,
-                  rotateY: mousePosition.x * 14,
-                }}
-                transition={{ type: "spring", stiffness: 160, damping: 20 }}
+              <div
                 className="relative z-10 w-[290px] sm:w-[340px] h-[420px] sm:h-[470px] rounded-3xl border border-zinc-700 bg-zinc-950/95 overflow-hidden shadow-2xl shadow-black/80 flex flex-col justify-between group"
               >
                 {/* Photo Display */}
                 <div className="relative w-full h-full overflow-hidden">
-                  <AnimatePresence mode="wait">
-                    <motion.img
-                      key={activeImg.id}
-                      src={activeImg.src}
-                      alt={activeImg.title}
-                      initial={{ opacity: 0, scale: 1.05 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0.95 }}
-                      transition={{ duration: 0.35 }}
-                      className="w-full h-full object-cover filter contrast-105"
-                    />
-                  </AnimatePresence>
+                  <img
+                    src={activeImg.src}
+                    alt={activeImg.title}
+                    className="w-full h-full object-cover filter contrast-105"
+                  />
 
                   {/* Gradient overlay for text legibility */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-black/20 pointer-events-none" />
@@ -399,17 +415,15 @@ export default function Hero({ data, activePersona }) {
                   </div>
                 </div>
 
-              </motion.div>
+              </div>
 
             </div>
 
             {/* 3-Image Selector */}
             <div className="mt-4 flex items-center gap-2 p-1.5 rounded-2xl bg-zinc-950/80 border border-zinc-800 backdrop-blur-md">
               {heroImages.map((img, idx) => (
-                <motion.button
+                <button
                   key={img.id}
-                  whileHover={{ scale: 1.04 }}
-                  whileTap={{ scale: 0.94 }}
                   onClick={() => setActiveImageIndex(idx)}
                   className={`flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-mono transition-all ${
                     activeImageIndex === idx
@@ -424,23 +438,23 @@ export default function Hero({ data, activePersona }) {
                   />
                   <span className="hidden sm:inline">{img.badge}</span>
                   <span className="sm:hidden">0{idx + 1}</span>
-                </motion.button>
+                </button>
               ))}
             </div>
 
             {/* Quick Metrics Bar below photos */}
             <div className="w-full max-w-[500px] grid grid-cols-3 gap-2.5 mt-5">
               <div className="p-3 rounded-2xl bg-zinc-950/70 border border-zinc-800/90 text-center">
-                <div className="text-xl font-bold font-mono text-white">15+</div>
-                <div className="text-[10px] font-mono text-zinc-400 uppercase mt-0.5">Projects</div>
+                <div className="text-xl font-bold font-mono text-white">11</div>
+                <div className="text-[10px] font-mono text-zinc-400 uppercase mt-0.5">Proyek</div>
               </div>
               <div className="p-3 rounded-2xl bg-zinc-950/70 border border-zinc-800/90 text-center">
-                <div className="text-xl font-bold font-mono text-white">7+</div>
-                <div className="text-[10px] font-mono text-zinc-400 uppercase mt-0.5">Enterprise Bots</div>
+                <div className="text-xl font-bold font-mono text-white">7</div>
+                <div className="text-[10px] font-mono text-zinc-400 uppercase mt-0.5">Chatbot AI</div>
               </div>
               <div className="p-3 rounded-2xl bg-zinc-950/70 border border-zinc-800/90 text-center">
-                <div className="text-xl font-bold font-mono text-white">Sem 5</div>
-                <div className="text-[10px] font-mono text-zinc-400 uppercase mt-0.5">Informatika</div>
+                <div className="text-xl font-bold font-mono text-white">S1</div>
+                <div className="text-[10px] font-mono text-zinc-400 uppercase mt-0.5">Informatika UNSAP</div>
               </div>
             </div>
 
@@ -448,6 +462,77 @@ export default function Hero({ data, activePersona }) {
 
         </motion.div>
       </div>
+
+      {/* ================= SKILL DETAIL MODAL ================= */}
+      <AnimatePresence>
+        {selectedSkill && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/85 backdrop-blur-xl"
+            onClick={() => setSelectedSkill(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.94, y: 18, opacity: 0 }}
+              animate={{ scale: 1, y: 0, opacity: 1 }}
+              exit={{ scale: 0.94, y: 18, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 260, damping: 24 }}
+              onClick={(event) => event.stopPropagation()}
+              className="relative w-full max-w-2xl max-h-[82vh] overflow-y-auto rounded-3xl border border-zinc-800 bg-zinc-950 p-5 sm:p-7 shadow-2xl"
+            >
+              <button
+                type="button"
+                onClick={() => setSelectedSkill(null)}
+                className="absolute top-4 right-4 p-2 rounded-xl border border-zinc-700 bg-zinc-900 text-zinc-400 hover:text-white"
+                aria-label="Tutup"
+              >
+                <X className="h-4 w-4" />
+              </button>
+
+              <p className="pr-12 font-mono text-[10px] uppercase tracking-[0.22em] text-zinc-500">
+                {selectedSkill.label}
+              </p>
+              <h3 className="mt-2 pr-12 text-xl sm:text-2xl font-bold text-white">
+                {selectedSkill.title}
+              </h3>
+              {selectedSkill.description && (
+                <p className="mt-3 text-sm leading-6 text-zinc-400">
+                  {selectedSkill.description}
+                </p>
+              )}
+
+              <div className="mt-6 grid gap-3 sm:grid-cols-2">
+                {selectedSkill.groups.map((group) => (
+                  <div key={group.title} className="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-4">
+                    <h4 className="text-sm font-bold text-zinc-100">{group.title}</h4>
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {group.items.map((item) => (
+                        <span
+                          key={item}
+                          className="rounded-full border border-zinc-800 bg-zinc-950 px-2.5 py-1 text-[11px] text-zinc-300"
+                        >
+                          {item}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-6 flex justify-end">
+                <button
+                  type="button"
+                  onClick={() => setSelectedSkill(null)}
+                  className="rounded-xl border border-zinc-700 bg-zinc-900 px-4 py-2 text-xs font-semibold text-zinc-200 hover:bg-zinc-800"
+                >
+                  Tutup
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* ================= LIGHTBOX ZOOM MODAL ================= */}
       <AnimatePresence>

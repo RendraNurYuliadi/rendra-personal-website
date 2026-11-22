@@ -1,9 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { GraduationCap, BookOpen, Award, CheckCircle2, MapPin } from 'lucide-react';
+import { GraduationCap, BookOpen, CheckCircle2, MapPin, CalendarDays } from 'lucide-react';
 import GlowingParticlesSectionBg from './GlowingParticlesSectionBg';
 
 export default function EducationSection({ education }) {
+  const levelAccents = {
+    'sdn2-sumedang': { icon: 'text-red-500', background: 'border-red-500/25 bg-red-500/10' },
+    'smpn3-sumedang': { icon: 'text-green-500', background: 'border-green-500/25 bg-green-500/10' },
+    'smkn1-sumedang': { icon: 'text-orange-500', background: 'border-orange-500/25 bg-orange-500/10' },
+    unsap: { icon: 'text-yellow-400', background: 'border-yellow-400/25 bg-yellow-400/10' }
+  };
+
   return (
     <section id="education" className="py-20 relative bg-[#09090b] border-t border-zinc-800/80 overflow-hidden">
       {/* Background Glowing Moving Particles with Box-Shadow */}
@@ -21,101 +28,101 @@ export default function EducationSection({ education }) {
         >
           <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-xs font-mono text-zinc-300">
             <GraduationCap className="h-3.5 w-3.5 text-zinc-400" />
-            <span>ACADEMIC BACKGROUND</span>
+            <span>EDUCATION</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Pendidikan & <span className="text-gradient-mono">Fondasi Akademik</span>
+            <span className="text-gradient-mono">Pendidikan</span>
           </h2>
           <p className="text-sm text-zinc-400 max-w-2xl mx-auto">
-            Pembelajaran terstruktur dalam ilmu informatika, rekayasa perangkat lunak, dan kecerdasan buatan.
+            Perjalanan pendidikan dan pengembangan kompetensi di bidang teknologi informasi.
           </p>
         </motion.div>
 
-        {/* Main Education Card with Scroll Animation & Hover */}
-        <motion.div 
-          initial={{ opacity: 0, y: 30, scale: 0.98 }}
-          whileInView={{ opacity: 1, y: 0, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          whileHover={{ y: -4 }}
-          className="max-w-4xl mx-auto rounded-3xl border border-zinc-800 bg-zinc-950/90 p-6 sm:p-10 backdrop-blur-xl shadow-2xl relative overflow-hidden transition-all hover:border-zinc-600 hover:shadow-[0_0_30px_rgba(255,255,255,0.06)]"
-        >
-          
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-zinc-800 pb-6 mb-6">
-            <div className="flex items-center gap-4">
-              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-zinc-900 border border-zinc-700 text-white shadow-lg shrink-0">
-                <GraduationCap className="h-7 w-7" />
-              </div>
-              <div>
-                <span className="text-xs font-mono text-zinc-400 uppercase tracking-wider block">
-                  Perguruan Tinggi
-                </span>
-                <h3 className="text-xl sm:text-2xl font-bold text-white">
-                  {education.university}
-                </h3>
-                <p className="text-sm font-semibold text-zinc-300">
-                  {education.faculty} &bull; <span className="text-white">{education.studyProgram}</span>
-                </p>
-              </div>
-            </div>
+        <div className="relative mx-auto max-w-5xl">
+          <div className="absolute bottom-8 left-7 top-8 w-px bg-zinc-800 sm:left-1/2" />
 
-            <div className="flex flex-col sm:items-end gap-1 font-mono text-xs text-zinc-400">
-              <span className="px-3 py-1 rounded-full bg-zinc-900 border border-zinc-700 text-zinc-200 font-semibold shadow-sm">
-                {education.currentStatus}
-              </span>
-              <span className="flex items-center gap-1 mt-1 text-zinc-500">
-                <MapPin className="h-3.5 w-3.5" />
-                {education.location}
-              </span>
-            </div>
+          <div className="space-y-8">
+            {education.timeline.map((item, index) => {
+              const accent = levelAccents[item.id] || {
+                icon: 'text-zinc-200',
+                background: 'border-zinc-700 bg-zinc-900'
+              };
+
+              return (
+              <motion.div
+                key={item.id}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.55, delay: index * 0.08 }}
+                className="relative grid items-stretch gap-5 sm:grid-cols-2"
+              >
+                <div className="absolute left-7 top-8 z-10 flex h-3 w-3 -translate-x-1/2 items-center justify-center rounded-full border-2 border-zinc-950 bg-white shadow-[0_0_14px_rgba(255,255,255,0.45)] sm:left-1/2" />
+
+                <div className={`${index % 2 === 1 ? 'sm:col-start-2' : ''}`}>
+                  <div className="ml-14 rounded-3xl border border-zinc-800 bg-zinc-950/90 p-5 sm:ml-0 sm:p-6">
+                    <div className="mb-5 flex items-start justify-between gap-3">
+                      <div className="flex items-start gap-3">
+                        <div className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border ${accent.background}`}>
+                          <GraduationCap className={`h-5 w-5 ${accent.icon}`} />
+                        </div>
+                        <div>
+                          <p className="text-[10px] font-mono uppercase tracking-[0.18em] text-zinc-500">
+                            {item.level}
+                          </p>
+                          <h3 className="mt-1 text-lg font-bold text-white sm:text-xl">
+                            {item.institution}
+                          </h3>
+                        </div>
+                      </div>
+                    </div>
+
+                    <p className="text-base font-semibold text-zinc-200">
+                      {item.program}
+                    </p>
+
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      <span className="inline-flex items-center gap-1.5 rounded-full border border-zinc-700 bg-zinc-900 px-3 py-1.5 text-xs text-zinc-200">
+                        <CheckCircle2 className="h-3.5 w-3.5" />
+                        {item.status}
+                      </span>
+                      <span className="inline-flex items-center gap-1.5 rounded-full border border-zinc-800 px-3 py-1.5 text-xs text-zinc-400">
+                        <CalendarDays className="h-3.5 w-3.5" />
+                        {item.period}
+                        {item.detail && ` • ${item.detail}`}
+                      </span>
+                    </div>
+
+                    <p className="mt-4 text-sm leading-7 text-zinc-400">
+                      {item.description}
+                    </p>
+
+                    <div className="mt-5 border-t border-zinc-800 pt-4">
+                      <h4 className="mb-3 flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-zinc-400">
+                        <BookOpen className="h-4 w-4" />
+                        Fokus Pembelajaran
+                      </h4>
+                      <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+                        {item.focus.map((focus) => (
+                          <div key={focus} className="flex items-start gap-2 text-xs text-zinc-300">
+                            <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-zinc-400" />
+                            <span>{focus}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <p className="mt-4 flex items-center gap-1.5 text-xs text-zinc-500">
+                      <MapPin className="h-3.5 w-3.5" />
+                      {item.location}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+              );
+            })}
           </div>
-
-          {/* Academic Focus & Highlights */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            
-            {/* Focus Areas */}
-            <div>
-              <h4 className="text-xs font-mono uppercase tracking-wider text-zinc-400 mb-3 flex items-center gap-2">
-                <BookOpen className="h-4 w-4 text-zinc-300" />
-                Fokus Studi Akademik:
-              </h4>
-              <div className="space-y-2">
-                {education.focus.map((item, idx) => (
-                  <motion.div 
-                    key={idx}
-                    whileHover={{ x: 4 }}
-                    className="flex items-start gap-2 text-xs text-zinc-300 cursor-default"
-                  >
-                    <CheckCircle2 className="h-4 w-4 text-zinc-400 shrink-0 mt-0.5" />
-                    <span>{item}</span>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-
-            {/* Achievements & Academic Milestones */}
-            <div>
-              <h4 className="text-xs font-mono uppercase tracking-wider text-zinc-400 mb-3 flex items-center gap-2">
-                <Award className="h-4 w-4 text-zinc-300" />
-                Pencapaian & Proyek Akademik Unggulan:
-              </h4>
-              <div className="space-y-2">
-                {education.achievements.map((item, idx) => (
-                  <motion.div 
-                    key={idx}
-                    whileHover={{ scale: 1.02, x: 2 }}
-                    className="p-3.5 rounded-2xl bg-zinc-900/60 border border-zinc-800 text-xs text-zinc-300 flex items-start gap-2 shadow-sm"
-                  >
-                    <span className="h-1.5 w-1.5 rounded-full bg-white mt-1.5 shrink-0 shadow-[0_0_6px_rgba(255,255,255,0.8)]" />
-                    <span>{item}</span>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-
-          </div>
-
-        </motion.div>
+        </div>
 
       </div>
     </section>

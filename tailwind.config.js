@@ -25,8 +25,8 @@ export default {
         }
       },
       fontFamily: {
-        sans: ['Plus Jakarta Sans', 'Inter', 'system-ui', 'sans-serif'],
-        mono: ['JetBrains Mono', 'Fira Code', 'monospace']
+        sans: ['Poppins', 'system-ui', 'sans-serif'],
+        mono: ['Poppins', 'system-ui', 'sans-serif']
       },
       animation: {
         'spin-slow': 'spin 20s linear infinite',

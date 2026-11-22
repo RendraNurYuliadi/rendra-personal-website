@@ -28,13 +28,13 @@ export default function ExperienceTimeline({ experiences }) {
         >
           <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-xs font-mono text-zinc-300">
             <Briefcase className="h-3.5 w-3.5 text-zinc-400" />
-            <span>CAREER & WORK HISTORY</span>
+            <span>CAREER & ORGANIZATIONAL EXPERIENCE</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Pengalaman Kerja & <span className="text-gradient-mono">Jejak Profesional</span>
+            Pengalaman Kerja & <span className="text-gradient-mono">Organisasi</span>
           </h2>
           <p className="text-sm text-zinc-400 max-w-2xl mx-auto">
-            Pengalaman nyata dalam pengembangan sistem conversational AI enterprise dan implementasi aplikasi web skala produksi.
+            Pengalaman dalam pengembangan conversational AI, aplikasi web, serta kegiatan organisasi dan pengembangan teknologi.
           </p>
         </motion.div>
 
@@ -50,7 +50,7 @@ export default function ExperienceTimeline({ experiences }) {
             className="lg:col-span-4 space-y-3"
           >
             <span className="text-xs font-mono uppercase tracking-wider text-zinc-500 block px-1">
-              Pilih Organisasi / Klien:
+              Pilih Pengalaman:
             </span>
             {experiences.map((exp) => (
               <motion.button
@@ -79,34 +79,6 @@ export default function ExperienceTimeline({ experiences }) {
               </motion.button>
             ))}
 
-            {/* Enterprise Client Highlights Box */}
-            <div className="p-4 rounded-2xl bg-zinc-950 border border-zinc-800 text-xs space-y-2.5">
-              <span className="font-mono text-zinc-300 font-bold block text-[11px] uppercase tracking-wider">
-                Enterprise Accounts Managed:
-              </span>
-              <ul className="space-y-1.5 text-zinc-400 font-mono text-[11px]">
-                <li className="flex items-center gap-2 text-zinc-300">
-                  <span className="h-1.5 w-1.5 rounded-full bg-white shadow-[0_0_8px_rgba(255,255,255,0.8)]" />
-                  <span>Lexus Philippines (Automotive)</span>
-                </li>
-                <li className="flex items-center gap-2 text-zinc-300">
-                  <span className="h-1.5 w-1.5 rounded-full bg-white shadow-[0_0_8px_rgba(255,255,255,0.8)]" />
-                  <span>Lexus Vietnam (Gemini Migration)</span>
-                </li>
-                <li className="flex items-center gap-2 text-zinc-300">
-                  <span className="h-1.5 w-1.5 rounded-full bg-zinc-400" />
-                  <span>SPTel (Telecom & Infrastructure)</span>
-                </li>
-                <li className="flex items-center gap-2 text-zinc-300">
-                  <span className="h-1.5 w-1.5 rounded-full bg-zinc-400" />
-                  <span>Sekolah Auliya (Educational AI)</span>
-                </li>
-                <li className="flex items-center gap-2 text-zinc-300">
-                  <span className="h-1.5 w-1.5 rounded-full bg-zinc-500" />
-                  <span>Kota Bogor, Kab. Bogor & Karawang</span>
-                </li>
-              </ul>
-            </div>
           </motion.div>
 
           {/* Right Column: Selected Role Deep Dive with AnimatePresence */}
@@ -158,11 +130,33 @@ export default function ExperienceTimeline({ experiences }) {
                   {selected.description}
                 </p>
 
+                {selected.projects?.length > 0 && (
+                  <div>
+                    <h4 className="text-xs font-mono uppercase tracking-wider text-zinc-400 mb-3">
+                      Proyek dan Klien:
+                    </h4>
+                    <div className="flex flex-wrap gap-2">
+                      {selected.projects.map((project) => (
+                        <span
+                          key={project}
+                          className="px-3 py-1.5 rounded-full border border-zinc-800 bg-zinc-900 text-xs text-zinc-300"
+                        >
+                          {project}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
                 {/* Responsibilities list */}
                 <div>
                   <h4 className="text-xs font-mono uppercase tracking-wider text-zinc-400 mb-3 flex items-center gap-1.5">
                     <Terminal className="h-4 w-4 text-zinc-300" />
-                    Tanggung Jawab Utama & Deliverables:
+                    {selected.type === 'Pengalaman Organisasi'
+                      ? 'Kontribusi:'
+                      : selected.type === 'Freelance'
+                        ? 'Lingkup Pekerjaan:'
+                        : 'Lingkup Pekerjaan:'}
                   </h4>
                   <div className="space-y-2.5">
                     {selected.responsibilities.map((resp, i) => (
@@ -175,21 +169,23 @@ export default function ExperienceTimeline({ experiences }) {
                 </div>
 
                 {/* Tech Stack used */}
-                <div className="pt-4 border-t border-zinc-800">
-                  <span className="text-xs font-mono uppercase tracking-wider text-zinc-500 block mb-2.5">
-                    Teknologi & Platform:
-                  </span>
-                  <div className="flex flex-wrap gap-2">
-                    {selected.technologies.map((t, idx) => (
-                      <span
-                        key={idx}
-                        className="px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-xs font-mono text-zinc-300"
-                      >
-                        {t}
-                      </span>
-                    ))}
+                {selected.technologies?.length > 0 && (
+                  <div className="pt-4 border-t border-zinc-800">
+                    <span className="text-xs font-mono uppercase tracking-wider text-zinc-500 block mb-2.5">
+                      Teknologi & Platform:
+                    </span>
+                    <div className="flex flex-wrap gap-2">
+                      {selected.technologies.map((t, idx) => (
+                        <span
+                          key={idx}
+                          className="px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-xs font-mono text-zinc-300"
+                        >
+                          {t}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                </div>
+                )}
 
               </motion.div>
             </AnimatePresence>

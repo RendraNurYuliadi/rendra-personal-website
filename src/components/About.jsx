@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
   User, Code2, Sparkles, Terminal, CheckCircle2,
-  Cpu, Copy, Check
+  Cpu, Copy, Check, Download
 } from 'lucide-react';
 // import profileImg from '../assets/namarendra-casual.jpg';
 import aboutPoster from '../assets/about-poster.png';
+import cvFile from '../assets/File/CV-Rendra-Nur-Yuliadi.pdf';
 import GlowingParticlesSectionBg from './GlowingParticlesSectionBg';
 
 export default function About({ data, activePersona }) {
@@ -38,10 +39,10 @@ export default function About({ data, activePersona }) {
   };
 
   const principles = [
-    { title: "Problem Solver", desc: "Berfokus pada penyelesaian akar masalah secara praktis, terstruktur, dan terukur." },
-    { title: "Continuous Learner", desc: "Cepat beradaptasi dengan model AI, framework modern, dan arsitektur baru." },
-    { title: "Detail-Oriented", desc: "Menjaga kualitas clean code, keamanan sistem, dan kepuasan antarmuka pengguna." },
-    { title: "Functional Impact", desc: "Membangun teknologi yang memberikan dampak riil dan nilai bisnis nyata." }
+    { title: "Problem Solving", desc: "Memahami kebutuhan dan mencari solusi yang sesuai dengan permasalahan." },
+    { title: "Adaptability", desc: "Mempelajari dan menyesuaikan teknologi dengan kebutuhan proyek." },
+    { title: "Attention to Detail", desc: "Memperhatikan struktur kode, fungsi aplikasi, dan pengalaman pengguna." },
+    { title: "Continuous Improvement", desc: "Terus mengembangkan kemampuan melalui pekerjaan, proyek, dan eksperimen teknis." }
   ];
 
   return (
@@ -60,11 +61,10 @@ export default function About({ data, activePersona }) {
           <div>
             <div className="mb-4 flex items-center gap-2 font-mono text-[11px] tracking-[0.28em] text-zinc-500">
               <User className="h-3.5 w-3.5" />
-              DISCOVER MY JOURNEY
+              ABOUT ME
             </div>
-            <h2 className="max-w-3xl text-4xl font-black uppercase leading-[0.95] tracking-[-0.055em] text-white sm:text-5xl lg:text-6xl">
+            <h2 className="max-w-3xl text-4xl font-black leading-[0.95] tracking-[-0.055em] text-white sm:text-5xl lg:text-6xl">
               Tentang Saya
-              <span className="block text-zinc-500">& Filosofi Rekayasa.</span>
             </h2>
           </div>
           <span className="hidden font-mono text-xs text-zinc-700 lg:block">01 / PROFILE</span>
@@ -78,15 +78,31 @@ export default function About({ data, activePersona }) {
             transition={{ duration: 0.75 }}
             className="relative min-h-[560px] overflow-hidden border border-zinc-800 bg-zinc-950 sm:min-h-[660px]"
           >
-            <img
-              src={aboutPoster}
-              alt="Potret editorial Rendra Nur Yuliadi"
-              className="absolute inset-0 h-full w-full object-cover grayscale-[15%]"
-            />
+            <div className="about-poster-frame absolute inset-0">
+              <img
+                src={aboutPoster}
+                alt="Potret editorial Rendra Nur Yuliadi"
+                className="absolute inset-0 h-full w-full object-cover grayscale-[15%]"
+              />
+              <div className="about-photo-particles absolute inset-0 z-[5] pointer-events-none" aria-hidden="true">
+                {Array.from({ length: 36 }).map((_, index) => (
+                  <span
+                    key={index}
+                    className={`about-photo-particle ${index % 3 === 0 ? 'about-photo-particle-dark' : ''}`}
+                    style={{
+                      '--particle-x': `${4 + ((index * 37) % 92)}%`,
+                      '--particle-delay': `${(index % 12) * 0.3}s`,
+                      '--particle-duration': `${4.2 + (index % 5) * 0.45}s`,
+                      '--particle-size': `${2 + (index % 3)}px`,
+                    }}
+                  />
+                ))}
+              </div>
+            </div>
             <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/10" />
             <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between border-t border-white/30 pt-4 text-white sm:bottom-7 sm:left-7 sm:right-7">
               <div>
-                <p className="font-mono text-[10px] tracking-[0.32em] text-zinc-300">PROFILE / 2026</p>
+                <p className="font-mono text-[10px] tracking-[0.32em] text-zinc-300">PROFILE</p>
                 <p className="mt-1 text-lg font-black tracking-tight">RENDR.AI</p>
               </div>
               <p className="font-mono text-[10px] leading-4 tracking-[0.16em] text-zinc-300">SUMEDANG<br />INDONESIA</p>
@@ -101,24 +117,34 @@ export default function About({ data, activePersona }) {
             className="flex flex-col"
           >
             <div className="border-l border-zinc-800 pl-5 sm:pl-8">
-              <p className="mb-5 font-mono text-xs tracking-[0.22em] text-zinc-500">/ WHO I AM</p>
+              <p className="mb-5 font-mono text-xs tracking-[0.22em] text-zinc-500">/ INTRODUCTION</p>
               <p className="text-xl leading-relaxed text-zinc-100 sm:text-2xl">
-                Saya adalah mahasiswa <span className="font-semibold text-white">S1 Informatika UNSAP</span> sekaligus Software & AI Developer yang aktif membangun teknologi modern.
+                Saya adalah mahasiswa <span className="font-semibold text-white">S1 Informatika di Universitas Sebelas April (UNSAP)</span> yang aktif mengembangkan aplikasi web dan sistem berbasis AI.
               </p>
             </div>
 
             <div className="mt-8 space-y-5 text-sm leading-7 text-zinc-400 sm:text-base">
               <p>
-                Melalui peran profesional di <span className="font-semibold text-zinc-100">LivePerson</span>, saya terlibat langsung dalam implementasi Conversational AI berskala internasional untuk Lexus Philippines & Vietnam, SPTel, dan sektor publik.
+                Saat ini, saya bekerja sebagai <span className="font-semibold text-zinc-100">AI Chatbot Developer di LivePerson</span>. Saya terlibat dalam pengembangan conversational AI untuk berbagai klien, termasuk Lexus Philippines, Lexus Vietnam, SPTel, dan sektor publik.
               </p>
               <p>
-                Pengalaman tersebut mengasah kemampuan <span className="text-zinc-200">prompt engineering, integrasi Google Gemini & OpenAI GPT, optimasi latensi, serta pembuatan dynamic payload dengan Node.js</span>.
+                Dalam pekerjaan tersebut, saya menangani <span className="text-zinc-200">perancangan alur percakapan, pengembangan prompt, integrasi model GPT dan Gemini, pengelolaan knowledge base, serta pengembangan custom function menggunakan Node.js</span>.
               </p>
               <p>
-                Saya percaya teknologi bukan sekadar baris kode—tetapi cara menciptakan solusi yang <span className="text-zinc-100">bermanfaat, efisien, dan berdampak nyata</span>.
+                Di luar pekerjaan, saya juga mengembangkan aplikasi web menggunakan <span className="text-zinc-100">React dan Laravel</span> serta mengeksplorasi integrasi IoT dengan ESP32.
               </p>
             </div>
 
+            <a
+              href={cvFile}
+              download="CV-Rendra-Nur-Yuliadi.pdf"
+              className="mt-7 inline-flex w-fit items-center gap-2.5 border border-zinc-700 bg-zinc-900/70 px-4 py-3 font-mono text-xs font-semibold tracking-[0.12em] text-zinc-100 transition-colors hover:border-zinc-500 hover:bg-zinc-800"
+            >
+              <Download className="h-4 w-4" />
+              DOWNLOAD CV
+            </a>
+
+            <p className="mt-8 font-mono text-[10px] tracking-[0.22em] text-zinc-600">/ HOW I WORK</p>
             <div className="mt-9 grid grid-cols-1 gap-px overflow-hidden border border-zinc-800 bg-zinc-800 sm:grid-cols-2">
               {principles.map((p, idx) => (
                 <motion.div
@@ -127,7 +153,7 @@ export default function About({ data, activePersona }) {
                   className="group min-h-36 bg-[#0d0d0f] p-5"
                 >
                   <div className="mb-5 flex items-center justify-between">
-                    <span className="font-mono text-[10px] text-zinc-600">0{idx + 1}</span>
+                    <span className="font-mono text-[10px] text-zinc-600">{String(idx + 1).padStart(2, '0')}</span>
                     <CheckCircle2 className="h-4 w-4 text-zinc-500 transition-colors group-hover:text-white" />
                   </div>
                   <h3 className="text-sm font-bold text-white">{p.title}</h3>
@@ -138,7 +164,7 @@ export default function About({ data, activePersona }) {
 
             <div className="mt-8 grid gap-px overflow-hidden border border-zinc-800 bg-zinc-800 sm:grid-cols-[1fr_220px]">
               <div className="bg-[#0d0d0f] p-5 sm:p-6">
-                <p className="font-mono text-[10px] tracking-[0.2em] text-zinc-600">PERSONAL BRAND STATEMENT</p>
+                <p className="font-mono text-[10px] tracking-[0.2em] text-zinc-600">MY APPROACH</p>
                 <p className="mt-3 text-lg font-bold leading-snug text-white sm:text-xl">
                   “{data.personal.brandStatement}”
                 </p>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useScroll } from 'framer-motion';
 import { Menu, X, ChevronRight } from 'lucide-react';
+import rLogo from '../assets/r_logo_v2.jpg';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -70,7 +71,7 @@ export default function Navbar() {
           >
             <div className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950 transition-all duration-300 group-hover:border-zinc-500 shadow-lg group-hover:shadow-[0_0_15px_rgba(255,255,255,0.1)]">
               <img
-                src="/images/r-logo-v2.svg"
+                src={rLogo}
                 alt="Logo Rendra"
                 className="h-full w-full object-cover"
               />

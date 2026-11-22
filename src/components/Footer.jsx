@@ -34,7 +34,13 @@ export default function Footer({ data }) {
             <a href="#experience" className="hover:text-white transition-colors">Pengalaman</a>
             <a href="#projects" className="hover:text-white transition-colors">Proyek</a>
             <a href="#skills" className="hover:text-white transition-colors">Tech Stack</a>
-            <a href="#ai-chat" className="hover:text-white transition-colors">AI Chat</a>
+            <button
+              type="button"
+              onClick={() => window.dispatchEvent(new CustomEvent('open-ai-assistant'))}
+              className="hover:text-white transition-colors"
+            >
+              AI Chat
+            </button>
             <a href="#contact" className="hover:text-white transition-colors">Kontak</a>
           </div>
 

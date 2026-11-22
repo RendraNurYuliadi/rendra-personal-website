@@ -2,14 +2,14 @@
 <html lang="id" class="dark scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/images/r-logo-v2.svg" />
+    <link rel="icon" type="image/jpeg" href="/src/assets/r_logo_v2.jpg?v=4" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rendra Nur Yuliadi | Software Developer & AI Engineer Portfolio</title>
     <meta name="description" content="Portfolio of Rendra Nur Yuliadi - Software Developer, AI & GenAI Specialist, Full-Stack Web Developer, and IoT Enthusiast." />
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   </head>
   <body class="bg-[#080b11] text-slate-100 font-sans selection:bg-cyan-500/30 selection:text-cyan-300 antialiased overflow-x-hidden">
     <div id="root"></div>
@@ -55,6 +55,13 @@
     frame.style.setProperty("height", isOpen ? "min(620px, calc(100vh - 32px))" : `${launcherHeight}px`, "important");
   };
   setFrameSize(false);
+  window.addEventListener("open-ai-assistant", () => {
+    setFrameSize(true, true, 50, 50);
+    frame.contentWindow.postMessage(
+      { type: "engagement-widget:resize", open: true, animate: true, launcherWidth: 50, launcherHeight: 50 },
+      widgetOrigin
+    );
+  });
   window.addEventListener("message", (event) => {
     if (event.origin !== widgetOrigin || event.source !== frame.contentWindow) return;
     if (event.data?.type !== "engagement-widget:resize") return;

@@ -1,13 +1,34 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   ExternalLink, Layers, Sparkles, CheckCircle2, 
-  AlertCircle, X, Terminal 
+  AlertCircle, X, ChevronLeft, ChevronRight
 } from 'lucide-react';
 import GlowingParticlesSectionBg from './GlowingParticlesSectionBg';
 
 export default function ProjectsShowcase({ projects, selectedProject, setSelectedProject }) {
   const [activeCategory, setActiveCategory] = useState('all');
+  const [showAll, setShowAll] = useState(false);
+  const [modalSlide, setModalSlide] = useState(1);
+  const modalSlideTotal = 10;
+
+  useEffect(() => {
+    setModalSlide(1);
+  }, [selectedProject]);
+  const includedProjectIds = [
+    'lexus-ph',
+    'lexus-vn',
+    'sptel-ai',
+    'sekolah-auliya',
+    'public-service-bogor',
+    'public-service-kab-bogor',
+    'public-service-karawang',
+    'fams',
+    'tahungoding-lms',
+    'noventra',
+    'genai-chatbot'
+  ];
+  const visibleProjects = projects.filter((project) => includedProjectIds.includes(project.id));
 
   const categories = [
     { id: 'all', label: 'Semua Proyek' },
@@ -18,8 +39,8 @@ export default function ProjectsShowcase({ projects, selectedProject, setSelecte
   ];
 
   const filteredProjects = activeCategory === 'all'
-    ? projects
-    : projects.filter((p) => p.category === activeCategory);
+    ? visibleProjects
+    : visibleProjects.filter((p) => p.category === activeCategory);
 
   return (
     <section id="projects" className="py-20 relative bg-[#09090b] border-t border-zinc-800/80 overflow-hidden">
@@ -55,7 +76,10 @@ export default function ProjectsShowcase({ projects, selectedProject, setSelecte
               key={cat.id}
               whileHover={{ scale: 1.04, y: -1 }}
               whileTap={{ scale: 0.94 }}
-              onClick={() => setActiveCategory(cat.id)}
+              onClick={() => {
+                setActiveCategory(cat.id);
+                setShowAll(false);
+              }}
               className={`px-4 py-2 rounded-full text-xs font-mono transition-all ${
                 activeCategory === cat.id
                   ? 'bg-white text-zinc-950 font-bold shadow-lg shadow-white/10'
@@ -73,7 +97,7 @@ export default function ProjectsShowcase({ projects, selectedProject, setSelecte
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           <AnimatePresence>
-            {filteredProjects.map((project, index) => (
+            {filteredProjects.slice(0, showAll ? filteredProjects.length : 6).map((project, index) => (
               <motion.div
                 key={project.id}
                 layout
@@ -152,6 +176,20 @@ export default function ProjectsShowcase({ projects, selectedProject, setSelecte
           </AnimatePresence>
         </motion.div>
 
+        {filteredProjects.length > 6 && (
+          <div className="mt-8 flex justify-center">
+            <motion.button
+              type="button"
+              whileHover={{ y: -2, scale: 1.02 }}
+              whileTap={{ scale: 0.96 }}
+              onClick={() => setShowAll((current) => !current)}
+              className="rounded-full border border-zinc-700 bg-zinc-900 px-5 py-2.5 text-sm font-semibold text-zinc-200 hover:border-zinc-500 hover:text-white"
+            >
+              {showAll ? 'Tampilkan Lebih Sedikit' : `Tampilkan Lebih Banyak (${filteredProjects.length - 6})`}
+            </motion.button>
+          </div>
+        )}
+
       </div>
 
       {/* Project Detail Modal Popup with Animated Entrance */}
@@ -170,7 +208,7 @@ export default function ProjectsShowcase({ projects, selectedProject, setSelecte
               exit={{ scale: 0.9, y: 20, opacity: 0 }}
               transition={{ type: "spring", stiffness: 300, damping: 25 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-3xl border border-zinc-800 bg-zinc-950 p-6 sm:p-8 shadow-2xl space-y-6"
+              className="relative w-[min(1180px,calc(100vw-32px))] max-h-[88vh] overflow-y-auto rounded-3xl border border-zinc-800 bg-zinc-950 p-5 sm:p-7 shadow-2xl"
             >
               
               {/* Close Button */}
@@ -185,7 +223,7 @@ export default function ProjectsShowcase({ projects, selectedProject, setSelecte
               </motion.button>
 
               {/* Modal Header */}
-              <div>
+              <div className="pr-12">
                 <div className="flex flex-wrap items-center gap-2 mb-2">
                   <span className="px-3 py-1 rounded-full bg-zinc-900 border border-zinc-700 text-zinc-200 text-xs font-mono">
                     {selectedProject.categoryLabel}
@@ -202,17 +240,37 @@ export default function ProjectsShowcase({ projects, selectedProject, setSelecte
                 </p>
               </div>
 
-              {/* Modal Image */}
-              <div className="relative h-48 sm:h-64 rounded-2xl overflow-hidden border border-zinc-800">
-                <img
-                  src={selectedProject.image}
-                  alt={selectedProject.title}
-                  className="w-full h-full object-cover filter contrast-105"
-                />
-              </div>
+              <div className="mt-5 grid gap-6 lg:grid-cols-[1.08fr_0.92fr]">
+                {/* Modal Image */}
+                <div className="relative min-h-[420px] overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900 lg:sticky lg:top-0 lg:self-start">
+                  <img
+                    src={selectedProject.image}
+                    alt={selectedProject.title}
+                    className="absolute inset-0 h-full w-full object-cover filter contrast-105"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setModalSlide((current) => current === 1 ? modalSlideTotal : current - 1)}
+                    className="absolute left-4 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-black/65 text-white backdrop-blur-md transition hover:bg-black"
+                    aria-label="Gambar sebelumnya"
+                  >
+                    <ChevronLeft className="h-5 w-5" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setModalSlide((current) => current === modalSlideTotal ? 1 : current + 1)}
+                    className="absolute right-4 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-black/65 text-white backdrop-blur-md transition hover:bg-black"
+                    aria-label="Gambar berikutnya"
+                  >
+                    <ChevronRight className="h-5 w-5" />
+                  </button>
+                  <div className="absolute bottom-4 right-4 rounded-full border border-white/20 bg-black/65 px-3 py-1.5 font-mono text-xs text-white backdrop-blur-md">
+                    {modalSlide}/{modalSlideTotal}
+                  </div>
+                </div>
 
-              {/* Problem & Description */}
-              <div className="space-y-3">
+                {/* Problem & Description */}
+                <div className="space-y-5">
                 <div>
                   <h4 className="text-xs font-mono uppercase tracking-wider text-zinc-400 mb-1">
                     Deskripsi Proyek
@@ -264,6 +322,7 @@ export default function ProjectsShowcase({ projects, selectedProject, setSelecte
                       {t}
                     </span>
                   ))}
+                </div>
                 </div>
               </div>
 
