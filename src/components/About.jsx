@@ -45,7 +45,7 @@ export default function About({ data, activePersona }) {
   ];
 
   return (
-    <section id="about" className="relative isolate overflow-hidden bg-[#09090b] py-24 sm:py-28 lg:py-32">
+    <section id="about" className="relative isolate overflow-hidden bg-[#ffffff] py-24 sm:py-28 lg:py-32">
       <GlowingParticlesSectionBg count={8} />
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-zinc-700 to-transparent" />
 
