@@ -15,52 +15,52 @@
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
     <iframe
-  id="engagement-chat-6aff0c899d0853a0f7bd4939-64a89541-538a-47ef-8157-b3e1643f4cc6"
-  src="https://ai-agent-project-gold.vercel.app/engagement/6aff0c899d0853a0f7bd4939/64a89541-538a-47ef-8157-b3e1643f4cc6?entryPointId=92b6e50c-7519-4e73-9648-2bee1d02ed5b"
-  title="Chat widget"
-  width="72"
-  height="72"
-  style="position:fixed;right:24px;bottom:24px;width:72px;height:72px;max-width:calc(100vw - 32px);max-height:calc(100vh - 32px);z-index:9999;border:0;background:transparent;transition:width .2s ease,height .2s ease"
-  referrerpolicy="strict-origin-when-cross-origin"
-  allow="clipboard-write"
-></iframe>
+      id="engagement-chat-6aff0c899d0853a0f7bd4939-64a89541-538a-47ef-8157-b3e1643f4cc6"
+      src="https://ai-agent-project-gold.vercel.app/engagement/6aff0c899d0853a0f7bd4939/64a89541-538a-47ef-8157-b3e1643f4cc6?entryPointId=92b6e50c-7519-4e73-9648-2bee1d02ed5b"
+      title="Chat widget"
+      width="72"
+      height="72"
+      style="position:fixed;right:24px;bottom:24px;width:72px;height:72px;max-width:calc(100vw - 32px);max-height:calc(100vh - 32px);z-index:9999;border:0;background:transparent;transition:width .2s ease,height .2s ease"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allow="clipboard-write"
+    ></iframe>
 
-<script>
-(() => {
-  const frame = document.getElementById("engagement-chat-6aff0c899d0853a0f7bd4939-64a89541-538a-47ef-8157-b3e1643f4cc6");
-  if (!frame || !document.body) return;
-  if (frame.parentElement !== document.body) document.body.appendChild(frame);
-  const widgetOrigin = new URL(frame.src).origin;
-  const setFrameSize = (isOpen, animate = false) => {
-    frame.style.setProperty("position", "fixed", "important");
-    frame.style.setProperty("top", "auto", "important");
-    frame.style.setProperty("left", "auto", "important");
-    frame.style.setProperty("right", "24px", "important");
-    frame.style.setProperty("bottom", "24px", "important");
-    frame.style.setProperty("margin", "0", "important");
-    frame.style.setProperty("z-index", "2147483000", "important");
-    frame.style.setProperty("max-width", "calc(100vw - 32px)", "important");
-    frame.style.setProperty("max-height", "calc(100vh - 32px)", "important");
-    frame.style.setProperty("border", "0", "important");
-    frame.style.setProperty("background", "transparent", "important");
-    frame.style.setProperty(
-      "transition",
-      animate && !window.matchMedia("(prefers-reduced-motion: reduce)").matches
-        ? "width 3s cubic-bezier(0.16, 1, 0.3, 1), height 3s cubic-bezier(0.16, 1, 0.3, 1)"
-        : "none",
-      "important"
-    );
-    frame.style.setProperty("width", isOpen ? "min(380px, calc(100vw - 32px))" : "72px", "important");
-    frame.style.setProperty("height", isOpen ? "min(620px, calc(100vh - 32px))" : "72px", "important");
-  };
-  setFrameSize(false);
-  window.addEventListener("message", (event) => {
-    if (event.origin !== widgetOrigin || event.source !== frame.contentWindow) return;
-    if (event.data?.type !== "engagement-widget:resize") return;
-    setFrameSize(event.data.open === true, event.data.animate === true);
-  });
-})();
-</script>
+    <script>
+    (() => {
+      const frame = document.getElementById("engagement-chat-6aff0c899d0853a0f7bd4939-64a89541-538a-47ef-8157-b3e1643f4cc6");
+      if (!frame || !document.body) return;
+      if (frame.parentElement !== document.body) document.body.appendChild(frame);
+      const widgetOrigin = new URL(frame.src).origin;
+      const setFrameSize = (isOpen, animate = false) => {
+        frame.style.setProperty("position", "fixed", "important");
+        frame.style.setProperty("top", "auto", "important");
+        frame.style.setProperty("left", "auto", "important");
+        frame.style.setProperty("right", "24px", "important");
+        frame.style.setProperty("bottom", "24px", "important");
+        frame.style.setProperty("margin", "0", "important");
+        frame.style.setProperty("z-index", "2147483000", "important");
+        frame.style.setProperty("max-width", "calc(100vw - 32px)", "important");
+        frame.style.setProperty("max-height", "calc(100vh - 32px)", "important");
+        frame.style.setProperty("border", "0", "important");
+        frame.style.setProperty("background", "transparent", "important");
+        frame.style.setProperty(
+          "transition",
+          animate && !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+            ? "width 3s cubic-bezier(0.16, 1, 0.3, 1), height 3s cubic-bezier(0.16, 1, 0.3, 1)"
+            : "none",
+          "important"
+        );
+        frame.style.setProperty("width", isOpen ? "min(380px, calc(100vw - 32px))" : "72px", "important");
+        frame.style.setProperty("height", isOpen ? "min(620px, calc(100vh - 32px))" : "72px", "important");
+      };
+      setFrameSize(false);
+      window.addEventListener("message", (event) => {
+        if (event.origin !== widgetOrigin || event.source !== frame.contentWindow) return;
+        if (event.data?.type !== "engagement-widget:resize") return;
+        setFrameSize(event.data.open === true, event.data.animate === true);
+      });
+    })();
+    </script>
   </body>
 </html>
 
